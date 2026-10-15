@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Financial Blog &amp; Insights — FinVantage</title>
+  <meta name="description" content="Insights for smarter money decisions. Explore educational articles on budgeting, emergency savings, expense management, and financial wellness.">
+  <link rel="icon" type="image/webp" href="assets/icons/favicon.webp">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/blog.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="site-navbar">
+    <div class="container navbar-container">
+      <a href="index.html" class="navbar-brand" aria-label="Stackly Home">
+        <img src="assets/Brand-logo.webp" alt="Stackly Brand Logo">
+      </a>
+
+      <nav class="navbar-menu" aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="service.html">Services</a></li>
+          <li><a href="blog.html" class="active">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+
+        <div class="navbar-actions">
+          <a href="login.html" class="btn btn-outline-primary btn-sm">Log In</a>
+        </div>
+      </nav>
+
+      <button type="button" class="navbar-toggle" aria-label="Toggle navigation drawer" aria-expanded="false">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- SECTION 1: HERO -->
+    <section class="blog-hero">
+      <div class="container reveal-fade-up">
+        <span class="section-tag">Knowledge &amp; Perspective</span>
+        <h1>Insights for <span>Smarter Money Decisions</span></h1>
+        <p class="blog-hero-subtitle">
+          Practical guidance, evidence-based budgeting frameworks, and educational wealth strategies to elevate your financial intelligence and peace of mind.
+        </p>
+        <div class="hero-actions">
+          <a href="404.html" class="btn btn-accent">
+            <span>Featured Insight</span>
+            <i class="fa-solid fa-star"></i>
+          </a>
+          <a href="404.html" class="btn btn-outline-white">
+            <span>Browse All Articles</span>
+            <i class="fa-solid fa-arrow-down"></i>
+          </a>
+        </div>
+        <div class="hero-blog-stats-grid">
+          <div class="hero-blog-stat-item">
+            <i class="fa-solid fa-book-open"></i>
+            <div>
+              <strong>6 Core Guides</strong>
+              <span>Curated in-depth financial essays</span>
+            </div>
+          </div>
+          <div class="hero-blog-stat-item">
+            <i class="fa-solid fa-bullseye"></i>
+            <div>
+              <strong>Action-Driven</strong>
+              <span>Step-by-step mathematical blueprints</span>
+            </div>
+          </div>
+          <div class="hero-blog-stat-item">
+            <i class="fa-solid fa-clock"></i>
+            <div>
+              <strong>Quick Reads</strong>
+              <span>Average 5 to 8-minute digestible insights</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: FEATURED ARTICLE -->
+    <section id="featured-article" class="section-padding" style="padding-bottom: 30px;">
+      <div class="container">
+        <div class="featured-article-card reveal-fade-up">
+          <div class="featured-media">
+            <img src="assets/images/blog-1.webp" alt="Featured Article: Building an Emergency Fund" loading="lazy">
+          </div>
+          <div class="featured-content">
+            <span class="featured-badge">FEATURED INSIGHT</span>
+            <div class="blog-meta">
+              <span><i class="fa-regular fa-calendar"></i> October 10, 2026</span>
+              <span><i class="fa-regular fa-clock"></i> 6 min read</span>
+            </div>
+            <h2 class="featured-title">How to Build an Emergency Fund: The Definitive Framework</h2>
+            <p class="featured-desc">
+              Understand the mathematical and behavioral blueprint behind securing a rock-solid 3-to-6-month liquid cushion. Eliminate panic and insulate your primary assets from unforeseen economic disruptions.
+            </p>
+            <div>
+              <button type="button" class="btn btn-accent blog-read-btn" data-article-id="blog-1">
+                <span>Read Full Article</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 7: SEARCH AND CATEGORY FILTERS & ARTICLE ARCHIVE (Sections 3, 4, 5, 6) -->
+    <section class="section-padding" style="padding-top: 10px;">
+      <div class="container">
+        <!-- Search and Filter Bar -->
+        <div class="blog-control-bar reveal-fade-up">
+          <div class="blog-search-wrap">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="blogSearchInput" placeholder="Search by topic, title, or keyword..." aria-label="Search articles">
+          </div>
+
+          <div class="blog-categories-wrap">
+            <button type="button" class="blog-filter-btn active" data-category="all">All Topics</button>
+            <button type="button" class="blog-filter-btn" data-category="savings">Saving Strategies</button>
+            <button type="button" class="blog-filter-btn" data-category="budgeting">Budgeting Tips</button>
+            <button type="button" class="blog-filter-btn" data-category="planning">Expense Management</button>
+            <button type="button" class="blog-filter-btn" data-category="debt">Debt Management</button>
+            <button type="button" class="blog-filter-btn" data-category="wellness">Financial Wellness</button>
+          </div>
+        </div>
+
+        <!-- Dynamic Article Grid (Populated & Filtered via script.js) -->
+        <div id="blogArticleGrid" class="blog-article-grid reveal-fade-up">
+          <!-- Dynamically populated from BLOG_ARTICLES array in script.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 8: NEWSLETTER SUBSCRIPTION AND CTA -->
+    <section class="section-padding" style="background: rgba(31, 60, 136, 0.03);">
+      <div class="container">
+        <div class="blog-cta-box reveal-fade-up">
+          <span class="section-tag" style="background: rgba(255, 255, 255, 0.15); color: #FFFFFF; border-color: rgba(255, 255, 255, 0.3);">
+            Stay Ahead
+          </span>
+          <h2>Subscribe to the FinVantage Wealth Dispatch</h2>
+          <p>
+            Receive bi-weekly personal wealth dispatches, budgeting guides, and early access to financial tools. Client-side demonstration.
+          </p>
+          <form class="newsletter-form newsletter-form-box blog-newsletter-form" novalidate>
+            <input type="email" placeholder="Enter your email address" required aria-label="Newsletter email">
+            <button type="submit" class="btn btn-accent">
+              <span>Subscribe</span>
+              <i class="fa-solid fa-envelope"></i>
+            </button>
+          </form>
+          <div class="newsletter-feedback mt-3 small"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ARTICLE PREVIEW MODAL -->
+  <div id="blogArticleModal" class="modal-container" role="dialog" aria-modal="true" aria-labelledby="blogModalTitle">
+    <div class="modal-overlay" data-close-modal></div>
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div>
+          <span id="blogModalCategory" class="badge badge-accent mb-2">CATEGORY</span>
+          <h3 id="blogModalTitle" class="m-0 text-primary">Article Title</h3>
+          <div id="blogModalDate" class="text-muted small mt-1">Date</div>
+        </div>
+        <button type="button" class="modal-close-btn" data-close-modal aria-label="Close modal">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div class="mb-4">
+        <img id="blogModalImage" src="assets/images/blog-1.webp" alt="Article Visual" class="img-fluid rounded border border-light">
+      </div>
+      <div id="blogModalBody" class="blog-modal-content">
+        <!-- Rendered body content -->
+      </div>
+      <div class="modal-footer pt-3 mt-4 border-top border-light text-end">
+        <button type="button" class="btn btn-outline-primary btn-sm" data-close-modal>
+          Close Preview
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="index.html" class="navbar-brand mb-3" aria-label="Stackly Home">
+            <img src="assets/Brand-logo.webp" alt="Stackly Logo" style="filter: brightness(0) invert(1);">
+          </a>
+          <p>
+            A modern, client-side personal finance platform dedicated to building sustainable money habits, transparent budgets, and lasting savings resilience.
+          </p>
+          <div class="footer-social-links">
+            <a href="404.html" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="404.html" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="404.html" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="404.html" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="service.html">Services</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Our Services</h4>
+          <ul class="footer-links">
+            <li><a href="404.html">Budget Planning</a></li>
+            <li><a href="404.html">Expense Tracking</a></li>
+            <li><a href="404.html">Income Management</a></li>
+            <li><a href="404.html">Savings Goals</a></li>
+            <li><a href="404.html">Debt Management</a></li>
+            <li><a href="404.html">Financial Reports</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Contact Info -->
+        <div class="footer-col">
+          <h4>Contact Us</h4>
+          <div class="footer-contact-info text-white-muted small">
+            <div class="footer-contact-item mb-2">
+              <i class="fa-solid fa-location-dot text-accent me-2 mt-1"></i>
+              <span>MMR Complex, Chinna Thirupathi, near Chinna Muniyappan Kovil, Salem, Tamil Nadu 636008</span>
+            </div>
+            <div class="footer-contact-item mb-2">
+              <i class="fa-solid fa-envelope text-accent me-2"></i>
+              <a href="mailto:info@stackly.com" class="text-white text-decoration-none">info@stackly.com</a>
+            </div>
+            <div class="footer-contact-item">
+              <i class="fa-solid fa-phone text-accent me-2"></i>
+              <a href="tel:1800789456" class="text-white text-decoration-none">1800789456</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Col 5: Location Map -->
+        <div class="footer-col footer-col-map">
+          <h4>Location Map</h4>
+          <div class="footer-map-container">
+            <iframe 
+              src="https://maps.google.com/maps?q=11.6829566,78.1739798&amp;hl=en&amp;z=17&amp;output=embed" 
+              width="100%" 
+              height="140" 
+              style="border:0; border-radius: 8px;" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade" 
+              title="Stackly Salem Office Google Map">
+            </iframe>
+            <a href="https://www.google.com/maps/place/Stackly/@11.6829566,78.1739798,17z/data=!3m1!4b1!4m6!3m5!1s0x3babefef7fd970bb:0xe11aef1a71994f9!8m2!3d11.6829566!4d78.1739798!16s%2Fg%2F11l660s35r?entry=ttu&amp;g_ep=EgoyMDI2MDcwNy4wIKXMDSoASAFQAw%3D%3D" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="footer-map-link">
+              <i class="fa-solid fa-map-location-dot me-1 text-accent"></i>
+              <span>Open in Google Maps</span>
+              <i class="fa-solid fa-arrow-up-right-from-square ms-1"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 Stackly Platform. All rights reserved. Strictly demo financial simulation.
+        </div>
+        <div>
+          <a href="404.html" class="text-white-muted me-3">Privacy Terms</a>
+          <a href="404.html" class="text-white-muted">Terms of Use</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div id="globalToast" class="global-toast"></div>
+  <script src="js/script.js"></script>
+</body>
+</html>

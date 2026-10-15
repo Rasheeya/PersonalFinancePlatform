@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services — FinVantage Personal Finance Platform</title>
+  <meta name="description" content="Explore FinVantage services: Budget Planning, Expense Tracking, Income Management, Savings Goals, Debt Management, and Financial Reports.">
+  <link rel="icon" type="image/webp" href="assets/icons/favicon.webp">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/service.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="site-navbar">
+    <div class="container navbar-container">
+      <a href="index.html" class="navbar-brand" aria-label="Stackly Home">
+        <img src="assets/Brand-logo.webp" alt="Stackly Brand Logo">
+      </a>
+
+      <nav class="navbar-menu" aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="service.html" class="active">Services</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+
+        <div class="navbar-actions">
+          <a href="login.html" class="btn btn-outline-primary btn-sm">Log In</a>
+        </div>
+      </nav>
+
+      <button type="button" class="navbar-toggle" aria-label="Toggle navigation drawer" aria-expanded="false">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- SECTION 1: HERO -->
+    <section class="service-hero">
+      <div class="container reveal-fade-up">
+        <span class="section-tag">FinVantage Capabilities</span>
+        <h1>Everything You Need to <span>Manage Your Money</span></h1>
+        <p class="service-hero-subtitle">
+          Practical tools to understand spending, organize budgets, track income streams, and work toward financial goals.
+        </p>
+        <div class="hero-actions">
+          <a href="404.html" class="btn btn-accent">
+            <span>Explore All 6 Services</span>
+            <i class="fa-solid fa-arrow-down"></i>
+          </a>
+          <a href="404.html" class="btn btn-outline-white">
+            <span>Get Started Free</span>
+            <i class="fa-solid fa-user-plus"></i>
+          </a>
+        </div>
+        <div class="hero-service-chips-grid">
+          <a href="404.html" class="hero-service-chip">
+            <i class="fa-solid fa-sliders"></i>
+            <span>Budget Planning</span>
+          </a>
+          <a href="404.html" class="hero-service-chip">
+            <i class="fa-solid fa-magnifying-glass-chart"></i>
+            <span>Expense Tracking</span>
+          </a>
+          <a href="404.html" class="hero-service-chip">
+            <i class="fa-solid fa-hand-holding-dollar"></i>
+            <span>Income Management</span>
+          </a>
+          <a href="404.html" class="hero-service-chip">
+            <i class="fa-solid fa-flag-checkered"></i>
+            <span>Savings Goals</span>
+          </a>
+          <a href="404.html" class="hero-service-chip">
+            <i class="fa-solid fa-scale-balanced"></i>
+            <span>Debt Management</span>
+          </a>
+          <a href="404.html" class="hero-service-chip">
+            <i class="fa-solid fa-chart-pie"></i>
+            <span>Financial Reports</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: BUDGET PLANNING -->
+    <section id="budget-planning" class="section-padding">
+      <div class="container">
+        <div class="service-split-row">
+          <div class="service-visual-box reveal-fade-up">
+            <img src="assets/images/service-budget.webp" alt="Budget Planning Illustration" loading="lazy">
+          </div>
+          <div class="reveal-fade-up">
+            <span class="section-tag">Budget Matrix</span>
+            <h2>Budget Planning</h2>
+            <p class="text-muted">
+              Construct adaptable envelopes for all household categories. Compare planned allocations against actual debit records in real-time.
+            </p>
+            <div class="service-feature-checklist">
+              <div class="checklist-item">
+                <div class="checklist-icon"><i class="fa-solid fa-sliders"></i></div>
+                <div class="checklist-text">
+                  <h5>Create Monthly Budgets</h5>
+                  <p>Design personalized budget blueprints matching your payday cadence.</p>
+                </div>
+              </div>
+              <div class="checklist-item">
+                <div class="checklist-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                <div class="checklist-text">
+                  <h5>Define Spending Limits</h5>
+                  <p>Set custom caps for volatile expenditure categories like dining out and leisure.</p>
+                </div>
+              </div>
+              <div class="checklist-item">
+                <div class="checklist-icon"><i class="fa-solid fa-gauge-high"></i></div>
+                <div class="checklist-text">
+                  <h5>Monitor Budget Usage</h5>
+                  <p>Visual allocation meters highlight pacing throughout the month.</p>
+                </div>
+              </div>
+              <div class="checklist-item">
+                <div class="checklist-icon"><i class="fa-solid fa-code-compare"></i></div>
+                <div class="checklist-text">
+                  <h5>Compare Planned &amp; Actual Expenses</h5>
+                  <p>Pinpoint positive surpluses or negative variances with instant delta readouts.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: EXPENSE TRACKING -->
+    <section id="expense-tracking" class="section-padding" style="background: rgba(31, 60, 136, 0.03);">
+      <div class="container">
+        <div class="service-split-row reverse">
+          <div class="reveal-fade-up">
+            <div class="interactive-mock-card">
+              <div class="interactive-mock-header">
+                <div>
+                  <h4 class="text-primary m-0">Recent Expense Log</h4>
+                  <span class="text-muted small">Sample Dynamic Breakdown</span>
+                </div>
+                <span class="badge badge-accent" role="button" tabindex="0" title="Click to replay animation">Auto-Sorted</span>
+              </div>
+              <div class="mock-progress-item">
+                <div class="mock-progress-labels">
+                  <span>Housing &amp; Utilities</span>
+                  <strong>$1,950 / $2,200</strong>
+                </div>
+                <div class="mock-progress-bar">
+                  <div class="mock-progress-fill" style="width: 88%;"></div>
+                </div>
+              </div>
+              <div class="mock-progress-item">
+                <div class="mock-progress-labels">
+                  <span>Groceries &amp; Nutrition</span>
+                  <strong>$780 / $900</strong>
+                </div>
+                <div class="mock-progress-bar">
+                  <div class="mock-progress-fill gold" style="width: 86%;"></div>
+                </div>
+              </div>
+              <div class="mock-progress-item">
+                <div class="mock-progress-labels">
+                  <span>Transit &amp; Mobility</span>
+                  <strong>$390 / $450</strong>
+                </div>
+                <div class="mock-progress-bar">
+                  <div class="mock-progress-fill" style="width: 86%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="reveal-fade-up">
+            <span class="section-tag">Outflow Mastery</span>
+            <h2>Expense Tracking</h2>
+            <p class="text-muted">
+              Gain granular comprehension of daily purchasing behavior. Eliminate the mystery behind disappearing monthly funds.
+            </p>
+            <div class="service-feature-checklist">
+              <div class="checklist-item">
+                <div class="checklist-icon"><i class="fa-solid fa-tags"></i></div>
+                <div class="checklist-text">
+                  <h5>Categorize Expenses</h5>
+                  <p>Organize outflows into intuitive buckets for effortless auditing.</p>
+                </div>
+              </div>
+              <div class="checklist-item">
+                <div class="checklist-icon"><i class="fa-solid fa-list-check"></i></div>
+                <div class="checklist-text">
+                  <h5>View Transaction Summaries</h5>
+                  <p>Search, filter, and inspect debits by vendor, category, or chronological window.</p>
+                </div>
+              </div>
+              <div class="checklist-item">
+                <div class="checklist-icon"><i class="fa-solid fa-calendar-days"></i></div>
+                <div class="checklist-text">
+                  <h5>Track Daily and Monthly Spending</h5>
+                  <p>Observe day-by-day cash velocity to stay comfortably under monthly thresholds.</p>
+                </div>
+              </div>
+              <div class="checklist-item">
+                <div class="checklist-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+                <div class="checklist-text">
+                  <h5>Identify Spending Patterns</h5>
+                  <p>Recognize recurring subscription creep and unbudgeted impulsive expenses.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: INCOME MANAGEMENT -->
+    <section id="income-management" class="section-padding">
+      <div class="container">
+        <div class="service-split-row">
+          <div class="service-visual-box reveal-fade-up">
+            <img src="assets/images/service-planning.webp" alt="Income and Financial Planning Illustration" loading="lazy">
+          </div>
+          <div class="reveal-fade-up">
+            <span class="section-tag">Cashflow Architecture</span>
+            <h2>Income Management</h2>
+            <p class="text-muted">
+              Consolidate disparate compensation channels into a single coherent cashflow ledger to project actual disposable margins.
+            </p>
+            <div class="service-feature-checklist">
+              <div class="checklist-item">
+                <div class="checklist-icon"><i class="fa-solid fa-money-bill-transfer"></i></div>
+                <div class="checklist-text">
+                  <h5>Record Income Sources</h5>
+                  <p>Aggregate primary salaries, freelance retainers, dividends, and seasonal revenue.</p>
+                </div>
+              </div>
+              <div class="checklist-item">
+                <div class="checklist-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+                <div class="checklist-text">
+                  <h5>Compare Income and Expenses</h5>
+                  <p>Ascertain your exact net savings rate with automatic mathematical calculations.</p>
+                </div>
+              </div>
+              <div class="checklist-item">
+                <div class="checklist-icon"><i class="fa-solid fa-arrow-trend-up"></i></div>
+                <div class="checklist-text">
+                  <h5>Review Monthly Cash Flow</h5>
+                  <p>Visualize rolling monthly trends to accommodate irregular income cycles safely.</p>
+                </div>
+              </div>
+              <div class="checklist-item">
+                <div class="checklist-icon"><i class="fa-solid fa-repeat"></i></div>
+                <div class="checklist-text">
+                  <h5>Track Recurring Income</h5>
+                  <p>Differentiate reliable foundational salaries from variable discretionary bonuses.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: SAVINGS GOALS -->
+    <section id="savings-goals" class="section-padding" style="background: rgba(31, 60, 136, 0.03);">
+      <div class="container">
+        <div class="service-split-row reverse">
+          <div class="reveal-fade-up">
+            <div class="interactive-mock-card">
+              <div class="interactive-mock-header">
+                <div>
+                  <h4 class="text-primary m-0">Target Milestones</h4>
+                  <span class="text-muted small">Session Goal Tracker</span>
+                </div>
+                <span class="badge badge-primary">Active</span>
+              </div>
+              <div class="mock-progress-item">
+                <div class="mock-progress-labels">
+                  <span>Liquid Emergency Reserve</span>
+                  <strong class="text-accent">77% ($15,400 / $20,000)</strong>
+                </div>
+                <div class="mock-progress-bar">
+                  <div class="mock-progress-fill gold" style="width: 77%;"></div>
+                </div>
+              </div>
+              <div class="mock-progress-item">
+                <div class="mock-progress-labels">
+                  <span>Index Wealth Portfolio</span>
+                  <strong class="text-primary">62% ($31,200 / $50,000)</strong>
+                </div>
+                <div class="mock-progress-bar">
+                  <div class="mock-progress-fill" style="width: 62%;"></div>
+                </div>
+              </div>
+              <div class="mock-progress-item">
+                <div class="mock-progress-labels">
+                  <span>Residential Down Payment</span>
+                  <strong class="text-accent">42% ($18,900 / $45,000)</strong>
+                </div>
+                <div class="mock-progress-bar">
+                  <div class="mock-progress-fill gold" style="width: 42%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="reveal-fade-up">
+            <span class="section-tag">Capital Accumulation</span>
+            <h2>Savings Goals</h2>
+            <p class="text-muted">
+              Transform vague financial wishes into quantifiable, chronological milestones with automated pacing metrics.
+            </p>
+            <div class="service-feature-checklist">
+              <div class="checklist-item">
+                <div class="checklist-icon"><i class="fa-solid fa-bullseye"></i></div>
+                <div class="checklist-text">
+                  <h5>Create Savings Targets</h5>
+                  <p>Designate designated buckets for vehicle upgrades, vacations, or safety reserves.</p>
+                </div>
+              </div>
+              <div class="checklist-item">
+                <div class="checklist-icon"><i class="fa-solid fa-calendar-check"></i></div>
+                <div class="checklist-text">
+                  <h5>Set Target Dates</h5>
+                  <p>Establish calendar deadlines to evaluate required monthly deposit contributions.</p>
+                </div>
+              </div>
+              <div class="checklist-item">
+                <div class="checklist-icon"><i class="fa-solid fa-vault"></i></div>
+                <div class="checklist-text">
+                  <h5>Track Saved Amounts</h5>
+                  <p>Log deposits and watch cumulative principle grow through disciplined execution.</p>
+                </div>
+              </div>
+              <div class="checklist-item">
+                <div class="checklist-icon"><i class="fa-solid fa-chart-pie"></i></div>
+                <div class="checklist-text">
+                  <h5>Display Goal Completion Progress</h5>
+                  <p>Intuitive percentage progress bars celebrate achievements along the way.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: DEBT MANAGEMENT -->
+    <section id="debt-management" class="section-padding">
+      <div class="container">
+        <div class="service-split-row">
+          <div class="reveal-fade-up">
+            <div class="card-premium">
+              <h4 class="text-primary mb-3"><i class="fa-solid fa-scale-balanced text-accent me-2"></i> Debt Reduction Protocols</h4>
+              <p class="text-muted small">
+                Compare structured methodologies for paying off credit facilities, educational financing, and personal loans:
+              </p>
+              <div class="p-3 mb-3" style="background: var(--primary-tint); border-radius: var(--radius-sm);">
+                <strong class="text-primary d-block mb-1">Avalanche Protocol (Highest Interest First)</strong>
+                <p class="small text-muted m-0">Directs excess capital to balances carrying highest APR to mathematically minimize cumulative interest paid.</p>
+              </div>
+              <div class="p-3" style="background: var(--accent-tint); border-radius: var(--radius-sm);">
+                <strong class="text-primary d-block mb-1">Snowball Protocol (Smallest Balance First)</strong>
+                <p class="small text-muted m-0">Focuses on quickly eliminating smallest balances to build psychological momentum and simplify obligations.</p>
+              </div>
+              <div class="educational-badge">
+                <i class="fa-solid fa-circle-info"></i>
+                <span>Educational planning tool. FinVantage does not guarantee debt elimination or specific legal outcomes.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="reveal-fade-up">
+            <span class="section-tag">Liability Amortization</span>
+            <h2>Debt Management</h2>
+            <p class="text-muted">
+              Gain strategic perspective over outstanding liabilities with organized scheduling and educational amortization planning.
+            </p>
+            <div class="service-feature-checklist">
+              <div class="checklist-item">
+                <div class="checklist-icon"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+                <div class="checklist-text">
+                  <h5>Record Outstanding Balances</h5>
+                  <p>Consolidate loans, financing contracts, and card balances in one secure view.</p>
+                </div>
+              </div>
+              <div class="checklist-item">
+                <div class="checklist-icon"><i class="fa-solid fa-chart-column"></i></div>
+                <div class="checklist-text">
+                  <h5>Track Repayment Progress</h5>
+                  <p>Monitor principal reduction as you submit planned payments over the repayment timeline.</p>
+                </div>
+              </div>
+              <div class="checklist-item">
+                <div class="checklist-icon"><i class="fa-solid fa-clock"></i></div>
+                <div class="checklist-text">
+                  <h5>Organize Due Dates</h5>
+                  <p>Schedule due dates to avoid penalty fees and preserve credit ratings.</p>
+                </div>
+              </div>
+              <div class="checklist-item">
+                <div class="checklist-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                <div class="checklist-text">
+                  <h5>Educational Planning Tools</h5>
+                  <p>Understand how additional principal payments accelerate freedom from interest.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 7: FINANCIAL REPORTS AND INSIGHTS -->
+    <section id="financial-reports" class="section-padding" style="background: rgba(31, 60, 136, 0.03);">
+      <div class="container">
+        <div class="text-center">
+          <span class="section-tag">Actionable Intelligence</span>
+          <h2>Financial Reports and Insights</h2>
+          <p class="section-desc">
+            Convert static numbers into clear, downloadable financial snapshots. Client-side generated reports ready for your records.
+          </p>
+        </div>
+
+        <div class="report-preview-grid">
+          <div class="card-premium reveal-fade-up">
+            <h4 class="text-primary mb-3">Analytical Deliverables</h4>
+            <ul class="key-point-list">
+              <li class="key-point-item">
+                <i class="fa-solid fa-chart-pie"></i>
+                <div><strong>Spending Breakdown:</strong> Proportional division of expenses across living, lifestyle, and saving categories.</div>
+              </li>
+              <li class="key-point-item">
+                <i class="fa-solid fa-calendar-check"></i>
+                <div><strong>Monthly Financial Summaries:</strong> At-a-glance rollups of net cashflow, surplus rates, and budget variances.</div>
+              </li>
+              <li class="key-point-item">
+                <i class="fa-solid fa-chart-line"></i>
+                <div><strong>Income-vs-Expense Charts:</strong> Visual comparative graphs displaying your historical savings velocity.</div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="card-premium reveal-fade-up d-flex flex-column justify-content-between">
+            <div>
+              <h4 class="text-primary mb-2">Available Demo Report Downloads</h4>
+              <p class="text-muted small mb-4">
+                Click below to generate and download actual client-side CSV files containing sample platform ledgers.
+              </p>
+              <div class="report-item-box mb-3">
+                <div class="report-info">
+                  <i class="fa-solid fa-file-csv"></i>
+                  <div>
+                    <h5 class="m-0 text-primary">Monthly-Financial-Summary.csv</h5>
+                    <span class="text-muted small">Complete budget &amp; transaction report</span>
+                  </div>
+                </div>
+                <button type="button" class="btn btn-outline-primary btn-sm" id="downloadServiceSummaryBtn">
+                  <i class="fa-solid fa-download"></i> Download
+                </button>
+              </div>
+            </div>
+            <div class="educational-badge mt-2">
+              <i class="fa-solid fa-circle-check"></i>
+              <span>Generated on demand directly in your browser.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 8: CALL TO ACTION -->
+    <section class="section-padding">
+      <div class="container">
+        <div class="service-cta-box reveal-fade-up">
+          <span class="section-tag" style="background: rgba(255, 255, 255, 0.15); color: #FFFFFF; border-color: rgba(255, 255, 255, 0.3);">
+            Take Action
+          </span>
+          <h2>Build Better Financial Habits</h2>
+          <p>
+            Equip yourself with the tools, clarity, and discipline necessary to achieve enduring financial autonomy.
+          </p>
+          <div class="d-flex justify-content-center">
+            <a href="404.html" class="btn btn-accent">
+              <span>Get Started</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="index.html" class="navbar-brand mb-3" aria-label="Stackly Home">
+            <img src="assets/Brand-logo.webp" alt="Stackly Logo" style="filter: brightness(0) invert(1);">
+          </a>
+          <p>
+            A modern, client-side personal finance platform dedicated to building sustainable money habits, transparent budgets, and lasting savings resilience.
+          </p>
+          <div class="footer-social-links">
+            <a href="404.html" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="404.html" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="404.html" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="404.html" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="service.html">Services</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Our Services</h4>
+          <ul class="footer-links">
+            <li><a href="404.html">Budget Planning</a></li>
+            <li><a href="404.html">Expense Tracking</a></li>
+            <li><a href="404.html">Income Management</a></li>
+            <li><a href="404.html">Savings Goals</a></li>
+            <li><a href="404.html">Debt Management</a></li>
+            <li><a href="404.html">Financial Reports</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Contact Info -->
+        <div class="footer-col">
+          <h4>Contact Us</h4>
+          <div class="footer-contact-info text-white-muted small">
+            <div class="footer-contact-item mb-2">
+              <i class="fa-solid fa-location-dot text-accent me-2 mt-1"></i>
+              <span>MMR Complex, Chinna Thirupathi, near Chinna Muniyappan Kovil, Salem, Tamil Nadu 636008</span>
+            </div>
+            <div class="footer-contact-item mb-2">
+              <i class="fa-solid fa-envelope text-accent me-2"></i>
+              <a href="mailto:info@stackly.com" class="text-white text-decoration-none">info@stackly.com</a>
+            </div>
+            <div class="footer-contact-item">
+              <i class="fa-solid fa-phone text-accent me-2"></i>
+              <a href="tel:1800789456" class="text-white text-decoration-none">1800789456</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Col 5: Location Map -->
+        <div class="footer-col footer-col-map">
+          <h4>Location Map</h4>
+          <div class="footer-map-container">
+            <iframe 
+              src="https://maps.google.com/maps?q=11.6829566,78.1739798&amp;hl=en&amp;z=17&amp;output=embed" 
+              width="100%" 
+              height="140" 
+              style="border:0; border-radius: 8px;" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade" 
+              title="Stackly Salem Office Google Map">
+            </iframe>
+            <a href="https://www.google.com/maps/place/Stackly/@11.6829566,78.1739798,17z/data=!3m1!4b1!4m6!3m5!1s0x3babefef7fd970bb:0xe11aef1a71994f9!8m2!3d11.6829566!4d78.1739798!16s%2Fg%2F11l660s35r?entry=ttu&amp;g_ep=EgoyMDI2MDcwNy4wIKXMDSoASAFQAw%3D%3D" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="footer-map-link">
+              <i class="fa-solid fa-map-location-dot me-1 text-accent"></i>
+              <span>Open in Google Maps</span>
+              <i class="fa-solid fa-arrow-up-right-from-square ms-1"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 Stackly Platform. All rights reserved. Strictly demo financial simulation.
+        </div>
+        <div>
+          <a href="404.html" class="text-white-muted me-3">Privacy Terms</a>
+          <a href="404.html" class="text-white-muted">Terms of Use</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div id="globalToast" class="global-toast"></div>
+  <script src="js/script.js"></script>
+</body>
+</html>

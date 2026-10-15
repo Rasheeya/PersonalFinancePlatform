@@ -1,0 +1,792 @@
+/* ==========================================================================
+   FinVantage / Stackly — Personal Finance Platform
+   File: css/animations.css
+   Modern, Hardware-Accelerated Interactive Animations & Micro-Interactions
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. CORE KEYFRAME DEFINITIONS
+   -------------------------------------------------------------------------- */
+
+/* Ambient floating levitation for hero graphics, badges, cards */
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Counter-phase floating for adjacent elements (natural depth feeling) */
+@keyframes floatReverse {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+/* Radiant breathing pulse for active status, amber CTA highlights */
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(245, 166, 35, 0.45);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(245, 166, 35, 0);
+  }
+}
+
+@keyframes pulseGlowBlue {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(31, 60, 136, 0.35);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(31, 60, 136, 0);
+  }
+}
+
+/* Shimmer gleam sweeping across elements */
+@keyframes sheenSweep {
+  0% {
+    left: -120%;
+  }
+  100% {
+    left: 220%;
+  }
+}
+
+/* Micro-bounce for tags, badges, and completed counter values */
+@keyframes popBadge {
+  0% {
+    transform: scale(0.92);
+  }
+  55% {
+    transform: scale(1.08);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Elegant card / modal entrance */
+@keyframes cardEntrance {
+  0% {
+    opacity: 0;
+    transform: translateY(22px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Dashboard view section smooth glide */
+@keyframes sectionGlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Subtle background ambient shift */
+@keyframes ambientGradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   2. HERO ENTRANCE CHOREOGRAPHY
+   -------------------------------------------------------------------------- */
+.hero-content .section-tag {
+  display: inline-block;
+  animation: cardEntrance 0.7s cubic-bezier(0.16, 1, 0.3, 1) both 0.1s;
+}
+
+.hero-content h1 {
+  animation: cardEntrance 0.8s cubic-bezier(0.16, 1, 0.3, 1) both 0.22s;
+}
+
+.hero-subtitle {
+  animation: cardEntrance 0.85s cubic-bezier(0.16, 1, 0.3, 1) both 0.34s;
+}
+
+.hero-buttons {
+  animation: cardEntrance 0.9s cubic-bezier(0.16, 1, 0.3, 1) both 0.46s;
+}
+
+.hero-trust-badges {
+  animation: cardEntrance 0.95s cubic-bezier(0.16, 1, 0.3, 1) both 0.58s;
+}
+
+/* Hero visual floating & parallax enhancements */
+.hero-parallax-wrap img,
+.hero-visual-box img {
+  animation: floatSlow 6.5s ease-in-out infinite;
+  will-change: transform;
+}
+
+.floating-badge-1 {
+  animation: floatSlow 4.8s ease-in-out infinite !important;
+  will-change: transform;
+}
+
+.floating-badge-2 {
+  animation: floatReverse 5.4s ease-in-out infinite 0.5s !important;
+  will-change: transform;
+}
+
+/* --------------------------------------------------------------------------
+   3. HARDWARE-ACCELERATED SCROLL REVEALS
+   -------------------------------------------------------------------------- */
+.reveal-fade-up {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-fade-down {
+  opacity: 0;
+  transform: translateY(-32px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-fade-left {
+  opacity: 0;
+  transform: translateX(-32px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-fade-right {
+  opacity: 0;
+  transform: translateX(32px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.92);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-pop {
+  opacity: 0;
+  transform: translateY(20px) scale(0.96);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+/* Revealed active state */
+.reveal-fade-up.revealed,
+.reveal-fade-down.revealed,
+.reveal-fade-left.revealed,
+.reveal-fade-right.revealed,
+.reveal-scale.revealed,
+.reveal-pop.revealed {
+  opacity: 1 !important;
+  transform: translate(0, 0) scale(1) !important;
+}
+
+/* Stagger delay classes for cascading grids */
+.stagger-1 { transition-delay: 0.06s; }
+.stagger-2 { transition-delay: 0.14s; }
+.stagger-3 { transition-delay: 0.22s; }
+.stagger-4 { transition-delay: 0.30s; }
+.stagger-5 { transition-delay: 0.38s; }
+.stagger-6 { transition-delay: 0.46s; }
+
+/* --------------------------------------------------------------------------
+   4. LUXURY CARD ELEVATION & HOVER MICRO-INTERACTIONS
+   -------------------------------------------------------------------------- */
+.card-premium,
+.overview-card,
+.service-card,
+.feature-box,
+.testimonial-card,
+.blog-card,
+.info-card,
+.resource-card,
+.pillar-card,
+.tool-feature-card,
+.metric-stat-card,
+.dash-card {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
+              border-color 0.35s ease !important;
+}
+
+.card-premium:hover,
+.overview-card:hover,
+.service-card:hover,
+.feature-box:hover,
+.testimonial-card:hover,
+.blog-card:hover,
+.info-card:hover,
+.resource-card:hover,
+.pillar-card:hover,
+.tool-feature-card:hover,
+.metric-stat-card:hover,
+.dash-card:hover {
+  transform: translateY(-6px) scale(1.008);
+  box-shadow: 0 20px 40px -10px rgba(31, 60, 136, 0.16), 0 0 1px rgba(245, 166, 35, 0.35) !important;
+  border-color: rgba(245, 166, 35, 0.45) !important;
+}
+
+/* Card Icon Spring Animation on Card Hover */
+.card-icon,
+.service-icon-box,
+.feature-icon,
+.info-icon-box,
+.overview-card-icon,
+.service-icon,
+.feature-icon-circle,
+.metric-icon-wrap {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-premium:hover .card-icon,
+.card-premium:hover .service-icon-box,
+.card-premium:hover .feature-icon,
+.card-premium:hover .info-icon-box,
+.overview-card:hover .overview-card-icon,
+.service-card:hover .service-icon,
+.feature-box:hover .feature-icon-circle,
+.metric-stat-card:hover .metric-icon-wrap {
+  transform: scale(1.12) rotate(3deg);
+}
+
+/* --------------------------------------------------------------------------
+   5. BUTTON POLISH & TACTILE CLICKS
+   -------------------------------------------------------------------------- */
+.btn {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+              background-color 0.25s ease, 
+              color 0.25s ease !important;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: scale(0.97) translateY(0);
+}
+
+/* Light sheen swipe on button hover */
+.btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.28), transparent);
+  transform: skewX(-20deg);
+  transition: none;
+  pointer-events: none;
+}
+
+.btn:hover::after {
+  left: 220%;
+  transition: left 0.75s ease-in-out;
+}
+
+/* Ambient glow on main CTA */
+.btn-accent {
+  animation: pulseGlow 4.5s ease-in-out infinite;
+}
+
+.btn-accent:hover {
+  animation: none;
+  box-shadow: 0 10px 24px rgba(245, 166, 35, 0.45) !important;
+}
+
+/* --------------------------------------------------------------------------
+   6. NAVBAR & NAVIGATION INDICATOR
+   -------------------------------------------------------------------------- */
+.navbar {
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease !important;
+}
+
+.navbar-brand img {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.navbar-brand:hover img {
+  transform: scale(1.04);
+}
+
+.navbar-link {
+  position: relative;
+  transition: color 0.25s ease;
+}
+
+.navbar-link::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1), left 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: 2px;
+}
+
+.navbar-link:hover::after,
+.navbar-link.active::after {
+  width: 100%;
+  left: 0;
+}
+
+/* --------------------------------------------------------------------------
+   7. BLOG CARD IMAGE ZOOM & READ-MORE GLIDE
+   -------------------------------------------------------------------------- */
+.blog-card img,
+.featured-article-card img {
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  will-change: transform;
+}
+
+.blog-card:hover img,
+.featured-article-card:hover img {
+  transform: scale(1.06);
+}
+
+.blog-card .read-more-link i,
+.featured-article-card .read-more-link i,
+.service-link i {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.blog-card:hover .read-more-link i,
+.featured-article-card:hover .read-more-link i,
+.service-card:hover .service-link i {
+  transform: translateX(5px);
+}
+
+/* --------------------------------------------------------------------------
+   8. AUTH PAGES (LOGIN / SIGNUP) ENTRANCE
+   -------------------------------------------------------------------------- */
+.auth-card {
+  animation: cardEntrance 0.75s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.auth-brand-logo {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.auth-brand-logo:hover {
+  transform: scale(1.05);
+}
+
+.auth-tab-btn {
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease !important;
+}
+
+.auth-tab-btn:hover {
+  transform: translateY(-1px);
+}
+
+.form-control {
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease !important;
+}
+
+.form-control:focus {
+  border-color: var(--primary) !important;
+  box-shadow: 0 0 0 4px rgba(31, 60, 136, 0.14) !important;
+}
+
+/* --------------------------------------------------------------------------
+   9. DASHBOARDS (SIDEBAR & SECTIONS)
+   -------------------------------------------------------------------------- */
+.dash-view-section.active {
+  animation: sectionGlideIn 0.38s cubic-bezier(0.16, 1, 0.3, 1) both !important;
+}
+
+.sidebar-nav-item {
+  transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease !important;
+}
+
+.sidebar-nav-item:hover {
+  transform: translateX(4px);
+}
+
+.sidebar-nav-item.active {
+  box-shadow: 0 4px 14px rgba(31, 60, 136, 0.12);
+}
+
+.user-status-dot {
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+/* Table rows smooth hover */
+.dash-table tbody tr {
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.dash-table tbody tr:hover {
+  background-color: rgba(31, 60, 136, 0.03);
+}
+
+/* Metric cards sequential cascade when section activates */
+.dash-view-section.active .metric-stat-card:nth-child(1) { animation: cardEntrance 0.42s cubic-bezier(0.16, 1, 0.3, 1) both 0.05s; }
+.dash-view-section.active .metric-stat-card:nth-child(2) { animation: cardEntrance 0.42s cubic-bezier(0.16, 1, 0.3, 1) both 0.12s; }
+.dash-view-section.active .metric-stat-card:nth-child(3) { animation: cardEntrance 0.42s cubic-bezier(0.16, 1, 0.3, 1) both 0.19s; }
+.dash-view-section.active .metric-stat-card:nth-child(4) { animation: cardEntrance 0.42s cubic-bezier(0.16, 1, 0.3, 1) both 0.26s; }
+.dash-view-section.active .dash-card { animation: cardEntrance 0.46s cubic-bezier(0.16, 1, 0.3, 1) both 0.18s; }
+
+/* --------------------------------------------------------------------------
+   10. FLOATING BACK TO TOP BUTTON
+   -------------------------------------------------------------------------- */
+.back-to-top {
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+              visibility 0.3s, 
+              transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+              background-color 0.3s ease !important;
+}
+
+.back-to-top.visible {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translateY(0) scale(1) !important;
+  animation: floatSlow 4.2s ease-in-out infinite;
+}
+
+.back-to-top:hover {
+  transform: translateY(-4px) scale(1.12) !important;
+  animation: none !important;
+}
+
+/* --------------------------------------------------------------------------
+   11. FAQ ACCORDION EXPANSION
+   -------------------------------------------------------------------------- */
+.faq-item {
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.faq-item.active {
+  border-color: var(--accent) !important;
+  box-shadow: 0 8px 24px rgba(31, 60, 136, 0.08);
+}
+
+.faq-question i {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.faq-item.active .faq-question i {
+  transform: rotate(180deg);
+  color: var(--accent);
+}
+
+/* --------------------------------------------------------------------------
+   12. MODAL DIALOG POP-IN
+   -------------------------------------------------------------------------- */
+.blog-modal {
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.blog-modal.active .blog-modal-content {
+  animation: cardEntrance 0.38s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* --------------------------------------------------------------------------
+   13. ANIMATED FINANCIAL PROGRESS BARS & CAPACITY METERS
+   -------------------------------------------------------------------------- */
+.progress,
+.overview-progress-bar,
+.mock-progress-bar {
+  position: relative;
+  overflow: hidden;
+  background-color: rgba(31, 60, 136, 0.08) !important;
+  border-radius: var(--radius-full, 999px) !important;
+  box-shadow: inset 0 1px 3px rgba(31, 60, 136, 0.08);
+  transition: height 0.25s ease, box-shadow 0.25s ease;
+}
+
+.progress-bar,
+.progress-bar-fill,
+.budget-progress-fill,
+.goal-progress-fill,
+.overview-progress-fill,
+.mock-progress-fill {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-full, 999px) !important;
+  height: 100%;
+  transition: width 1.35s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: width;
+}
+
+/* Glowing pulse tip on active progress bars */
+.mock-progress-fill::before,
+.overview-progress-fill::before,
+.progress-bar::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 8px;
+  background: #ffffff;
+  border-radius: 999px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.9), 0 0 16px currentColor;
+  opacity: 0.85;
+  pointer-events: none;
+  animation: barPulseDot 2s infinite ease-in-out;
+}
+
+@keyframes barPulseDot {
+  0%, 100% { opacity: 0.5; transform: scaleX(0.7); }
+  50% { opacity: 1; transform: scaleX(1.3); }
+}
+
+/* Radiant animated shimmer sweep across all bar sections */
+.progress-bar::after,
+.progress-bar-fill::after,
+.budget-progress-fill::after,
+.goal-progress-fill::after,
+.overview-progress-fill::after,
+.mock-progress-fill::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -120%;
+  width: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.45) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  animation: sheenSweep 2.4s infinite cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+
+/* Micro-interaction hover on progress item rows */
+.mock-progress-item {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background 0.25s ease;
+  padding: 6px 8px;
+  margin: -4px -8px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.mock-progress-item:hover {
+  transform: translateX(4px);
+  background: rgba(31, 60, 136, 0.035);
+}
+
+.mock-progress-item:hover .mock-progress-bar {
+  height: 10px;
+  box-shadow: inset 0 1px 3px rgba(31, 60, 136, 0.14);
+}
+
+.mock-progress-item:hover .mock-progress-fill:not(.gold) {
+  box-shadow: 0 0 16px rgba(31, 60, 136, 0.45);
+  filter: brightness(1.12);
+}
+
+.mock-progress-item:hover .mock-progress-fill.gold {
+  box-shadow: 0 0 16px rgba(245, 166, 35, 0.55);
+  filter: brightness(1.12);
+}
+
+.mock-progress-item:hover .mock-progress-labels strong {
+  color: var(--primary);
+  transform: scale(1.05);
+  display: inline-block;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+/* Hover glow lift on progress sections */
+.progress:hover .progress-bar,
+.overview-progress-bar:hover .overview-progress-fill {
+  filter: brightness(1.1);
+}
+
+/* Counter celebration pop */
+.counter-finished {
+  animation: popBadge 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* 404 Floating Number Animation */
+.error-code {
+  animation: floatSlow 5s ease-in-out infinite;
+  display: inline-block;
+}
+
+/* --------------------------------------------------------------------------
+   14. INTERACTIVE ICONS & CLICKABLE INDICATORS (Visual cues for 404 triggers)
+   -------------------------------------------------------------------------- */
+i[class*="fa-"]:not(.site-navbar i):not(.site-footer i):not(.form-feedback-icon):not(.alert-icon),
+svg:not(.site-navbar svg):not(.site-footer svg),
+.metric-icon-wrap,
+.client-metric-icon,
+.feature-icon,
+.why-icon,
+.stat-icon,
+.service-icon,
+.hero-service-chip,
+.hero-contact-chip {
+  cursor: pointer;
+  transition: transform var(--transition-fast, 0.22s) ease, filter var(--transition-fast, 0.22s) ease;
+}
+
+.metric-icon-wrap:hover,
+.client-metric-icon:hover,
+.feature-icon:hover,
+.why-icon:hover,
+.stat-icon:hover,
+.service-icon:hover {
+  transform: translateY(-2px) scale(1.06);
+}
+
+/* --------------------------------------------------------------------------
+   15. REDUCED MOTION PREFERENCE (ACCESSIBILITY)
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   16. UNIVERSAL MOBILE RESPONSIVE GUARDS
+   -------------------------------------------------------------------------- */
+html, body {
+  overflow-x: hidden !important;
+  width: 100% !important;
+  max-width: 100vw !important;
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Prevent image, canvas, and media blowout on narrow viewports */
+img, svg, video, canvas, iframe {
+  max-width: 100%;
+}
+
+@media (max-width: 576px) {
+  .container {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+}
+
+/* Stop all scrolling functionality when mobile navbar is open */
+html.mobile-nav-open,
+body.mobile-nav-open {
+  overflow: hidden !important;
+  height: 100% !important;
+  max-height: 100% !important;
+  overscroll-behavior: none !important;
+  touch-action: none !important;
+}
+
+body.mobile-nav-open .navbar-menu,
+.navbar-menu.active {
+  overflow: hidden !important;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+  touch-action: none !important;
+}
+
+body.mobile-nav-open .navbar-menu::-webkit-scrollbar,
+.navbar-menu.active::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+/* --------------------------------------------------------------------------
+   17. MOBILE NAVBAR TOGGLE (HAMBURGER TO CLOSE TAG ANIMATION)
+   -------------------------------------------------------------------------- */
+.navbar-toggle {
+  border-radius: var(--radius-md, 8px);
+  transition: background-color 0.25s ease, color 0.25s ease;
+  position: relative;
+  z-index: 1001;
+}
+
+.navbar-toggle:hover {
+  background: rgba(31, 60, 136, 0.08);
+}
+
+.navbar-toggle i {
+  display: inline-block;
+  transform-origin: center center;
+  transition: transform 0.38s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.25s ease, opacity 0.2s ease;
+}
+
+/* Active State: Morph to animated closing tag (X) while viewing navbar */
+.navbar-toggle.active {
+  color: var(--accent) !important;
+  background: rgba(245, 166, 35, 0.12);
+}
+
+.navbar-toggle.active:hover {
+  background: rgba(245, 166, 35, 0.2);
+}
+
+.navbar-toggle.active i {
+  transform: rotate(180deg) scale(1.1);
+}
+
+/* Instant CSS glyph morph to FontAwesome X-mark (\f00d) if fa-bars remains */
+.navbar-toggle.active i.fa-bars::before {
+  content: "\f00d" !important;
+}
+
+/* Stagger entrance for mobile drawer links when viewing navbar */
+@media (max-width: 991px) {
+  .navbar-menu.active .nav-links li {
+    animation: navDrawerFadeUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  .navbar-menu.active .nav-links li:nth-child(1) { animation-delay: 0.04s; }
+  .navbar-menu.active .nav-links li:nth-child(2) { animation-delay: 0.08s; }
+  .navbar-menu.active .nav-links li:nth-child(3) { animation-delay: 0.12s; }
+  .navbar-menu.active .nav-links li:nth-child(4) { animation-delay: 0.16s; }
+  .navbar-menu.active .nav-links li:nth-child(5) { animation-delay: 0.20s; }
+  .navbar-menu.active .navbar-actions {
+    animation: navDrawerFadeUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: 0.24s;
+  }
+}
+
+@keyframes navDrawerFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+

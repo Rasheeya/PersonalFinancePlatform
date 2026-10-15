@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Log In — FinVantage Personal Finance Platform</title>
+  <meta name="description" content="Access your FinVantage dashboard. Client-side personal finance tracking and advisory simulation.">
+  <link rel="icon" type="image/webp" href="assets/icons/favicon.webp">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/login.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+
+  <div class="auth-container">
+    <a href="index.html" class="back-home-link" aria-label="Back to Homepage">
+      <i class="fa-solid fa-arrow-left"></i>
+      <span>Back to Home</span>
+    </a>
+
+    <div class="auth-card">
+      <div class="auth-card-header">
+        <img src="assets/Brand-logo.webp" alt="Stackly Logo" class="auth-brand-logo">
+        <h1>Welcome Back</h1>
+        <p>Log in to access your financial dashboard simulation.</p>
+      </div>
+
+      <div id="loginStatusBox"></div>
+
+      <form id="loginForm" autocomplete="off" novalidate>
+        <!-- Email -->
+        <div class="form-group">
+          <label for="loginEmail" class="form-label">Email Address *</label>
+          <input type="email" id="loginEmail" class="form-control" placeholder="Enter your email address" required autocomplete="off">
+        </div>
+
+        <!-- Password -->
+        <div class="form-group">
+          <label for="loginPassword" class="form-label">Password *</label>
+          <div class="input-password-wrap">
+            <input type="password" id="loginPassword" class="form-control" placeholder="Enter your password" required autocomplete="off">
+            <button type="button" class="password-toggle-btn" data-target="loginPassword" aria-label="Toggle password visibility">
+              <i class="fa-regular fa-eye"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Demo Role Selection -->
+        <div class="role-selection-box">
+          <span class="role-label"><i class="fa-solid fa-user-gear me-1"></i> Choose Dashboard Simulation View:</span>
+          <div class="role-options">
+            <label class="role-radio-label">
+              <input type="radio" name="demoRole" value="user" checked>
+              <span>User Dashboard</span>
+            </label>
+            <label class="role-radio-label">
+              <input type="radio" name="demoRole" value="client">
+              <span>Client Dashboard</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Options: Remember Me & Forgot Password -->
+        <div class="auth-options-bar">
+          <label class="auth-checkbox-label">
+            <input type="checkbox" id="loginRememberMe">
+            <span>Remember for this session</span>
+          </label>
+          <a href="404.html" class="forgot-link">Forgot Password?</a>
+        </div>
+
+        <!-- Submit -->
+        <button type="submit" class="btn btn-primary">
+          <span>Log In to Dashboard</span>
+          <i class="fa-solid fa-arrow-right-to-bracket"></i>
+        </button>
+
+        <div class="auth-footer-prompt">
+          Don't have an account? <a href="signup.html">Create an Account</a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="globalToast" class="global-toast"></div>
+  <script src="js/script.js"></script>
+</body>
+</html>

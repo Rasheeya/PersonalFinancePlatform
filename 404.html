@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — Ledger Path Not Located | FinVantage</title>
+  <meta name="description" content="The requested page or route could not be found. Navigate back to FinVantage platform dashboards or homepage.">
+  <link rel="icon" type="image/webp" href="assets/icons/favicon.webp">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <style>
+    :root {
+      --primary: #1F3C88;
+      --primary-dark: #13275c;
+      --primary-light: #2b52b3;
+      --secondary: #FFFFFF;
+      --accent: #F5A623;
+      --accent-dark: #d6870a;
+      --accent-tint: rgba(245, 166, 35, 0.12);
+      --bg-page: #f6f9fe;
+      --text-muted: rgba(31, 60, 136, 0.72);
+      --primary-border: rgba(31, 60, 136, 0.12);
+      --primary-tint: rgba(31, 60, 136, 0.05);
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-full: 999px;
+      --shadow-sm: 0 4px 12px rgba(31, 60, 136, 0.06);
+      --shadow-md: 0 12px 32px rgba(31, 60, 136, 0.09);
+      --shadow-lg: 0 20px 50px rgba(31, 60, 136, 0.14);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg-page);
+      background-image: 
+        radial-gradient(circle at 18% 20%, rgba(31, 60, 136, 0.06) 0%, transparent 45%),
+        radial-gradient(circle at 82% 80%, rgba(245, 166, 35, 0.08) 0%, transparent 40%),
+        linear-gradient(rgba(31, 60, 136, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(31, 60, 136, 0.02) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 32px 32px, 32px 32px;
+      color: var(--primary);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 20px;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Ambient floating background symbols */
+    .bg-particle {
+      position: absolute;
+      color: rgba(31, 60, 136, 0.08);
+      pointer-events: none;
+      z-index: 0;
+      user-select: none;
+      font-size: 1.8rem;
+    }
+    .p1 { top: 12%; left: 10%; animation: floatSlow 6s ease-in-out infinite; font-size: 2.2rem; }
+    .p2 { top: 22%; right: 12%; animation: floatSlow 7s ease-in-out infinite 1s; color: rgba(245, 166, 35, 0.18); font-size: 2rem; }
+    .p3 { bottom: 18%; left: 8%; animation: floatSlow 8s ease-in-out infinite 2s; color: rgba(245, 166, 35, 0.15); font-size: 1.6rem; }
+    .p4 { bottom: 14%; right: 14%; animation: floatSlow 6.5s ease-in-out infinite 1.5s; font-size: 2.4rem; }
+
+    /* Main Container */
+    .error-wrapper {
+      position: relative;
+      z-index: 1;
+      max-width: 540px;
+      width: 100%;
+      text-align: center;
+      animation: cardEntrance 0.75s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    /* Brand Logo Pill */
+    .error-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #FFFFFF;
+      padding: 8px 18px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--primary-border);
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 24px;
+      text-decoration: none;
+      transition: all 0.25s ease;
+    }
+    .error-brand img {
+      height: 26px;
+      width: auto;
+      display: block;
+    }
+    .error-brand span {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .error-brand:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--accent);
+    }
+
+    /* Main Card */
+    .error-card {
+      background: #FFFFFF;
+      border: 1px solid var(--primary-border);
+      border-top: 5px solid var(--accent);
+      border-radius: var(--radius-lg);
+      padding: 44px 36px 36px;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Top Shimmer Stripe */
+    .error-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 50%, var(--primary) 100%);
+      opacity: 0.85;
+    }
+
+    /* Animated Visual Centerpiece */
+    .illustration-wrap {
+      position: relative;
+      width: 130px;
+      height: 130px;
+      margin: 0 auto 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .radar-ring {
+      position: absolute;
+      inset: 0;
+      border: 2px dashed rgba(31, 60, 136, 0.22);
+      border-radius: 50%;
+      animation: spinSlow 22s linear infinite;
+    }
+    .radar-ring-inner {
+      position: absolute;
+      inset: 18px;
+      border: 1px solid rgba(245, 166, 35, 0.4);
+      border-radius: 50%;
+      animation: pulseGlow 3s ease-in-out infinite;
+    }
+    .compass-core {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      box-shadow: 0 8px 24px rgba(31, 60, 136, 0.3);
+      position: relative;
+      z-index: 2;
+      animation: floatSlow 4s ease-in-out infinite;
+    }
+    .orbit-dot {
+      position: absolute;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #FFFFFF;
+      border: 1px solid var(--primary-border);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      color: var(--accent);
+    }
+    .orbit-1 { top: -4px; left: 50%; transform: translateX(-50%); animation: floatSlow 3.5s ease-in-out infinite; }
+    .orbit-2 { bottom: 4px; right: -2px; color: var(--primary); animation: floatSlow 4.5s ease-in-out infinite 0.5s; }
+    .orbit-3 { bottom: 4px; left: -2px; color: var(--primary); animation: floatSlow 4s ease-in-out infinite 1s; }
+
+    /* Error Code Display */
+    .error-code-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+    .error-code {
+      font-size: 4.8rem;
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -2px;
+      background: linear-gradient(135deg, var(--primary) 0%, #2f5bc7 60%, var(--accent) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: floatSlow 5s ease-in-out infinite;
+      display: inline-block;
+    }
+    .error-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--accent-tint);
+      color: var(--accent-dark);
+      font-weight: 700;
+      font-size: 0.76rem;
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(245, 166, 35, 0.35);
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    h1 {
+      font-size: 1.55rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 10px;
+      letter-spacing: -0.3px;
+    }
+
+    .error-desc {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      max-width: 520px;
+      margin: 0 auto 28px;
+    }
+
+    /* Actions Bar */
+    .actions-group {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 0;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 24px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .btn-primary {
+      background: var(--primary);
+      color: #FFFFFF;
+      border: 2px solid var(--primary);
+      box-shadow: 0 4px 14px rgba(31, 60, 136, 0.18);
+    }
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      border-color: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 22px rgba(31, 60, 136, 0.28);
+    }
+    .btn-outline {
+      background: #FFFFFF;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+    }
+    .btn-outline:hover {
+      background: var(--primary-tint);
+      color: var(--primary);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(31, 60, 136, 0.12);
+    }
+
+    @media (max-width: 576px) {
+      .error-card { padding: 32px 20px 24px; }
+      .error-code { font-size: 3.8rem; }
+      .actions-group { flex-direction: column; width: 100%; }
+      .btn { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Financial Symbols -->
+  <div class="bg-particle p1"><i class="fa-solid fa-chart-pie"></i></div>
+  <div class="bg-particle p2"><i class="fa-solid fa-coins"></i></div>
+  <div class="bg-particle p3"><i class="fa-solid fa-shield-halved"></i></div>
+  <div class="bg-particle p4"><i class="fa-solid fa-chart-line"></i></div>
+
+  <div class="error-wrapper">
+    <!-- Brand Logo -->
+    <a href="index.html" class="error-brand" aria-label="FinVantage Homepage">
+      <img src="assets/Brand-logo.webp" alt="Stackly Brand Logo">
+      <span>FinVantage Platform</span>
+    </a>
+
+    <!-- Main 404 Card -->
+    <div class="error-card">
+      <!-- Animated Centerpiece Graphic -->
+      <div class="illustration-wrap">
+        <div class="radar-ring"></div>
+        <div class="radar-ring-inner"></div>
+        <div class="compass-core">
+          <i class="fa-solid fa-compass"></i>
+        </div>
+        <div class="orbit-dot orbit-1"><i class="fa-solid fa-coins"></i></div>
+        <div class="orbit-dot orbit-2"><i class="fa-solid fa-vault"></i></div>
+        <div class="orbit-dot orbit-3"><i class="fa-solid fa-chart-simple"></i></div>
+      </div>
+
+      <div class="error-badge">
+        <i class="fa-solid fa-circle-exclamation"></i>
+        <span>Route Code 404 • Path Unresolved</span>
+      </div>
+
+      <div class="error-code-row">
+        <div class="error-code">404</div>
+      </div>
+
+      <h1>Financial Ledger Route Not Located</h1>
+      <p class="error-desc">
+        The destination, financial asset view, or demo resource you requested could not be identified or is currently under scheduled platform maintenance. Your session remains secure.
+      </p>
+
+      <!-- Primary Action Buttons -->
+      <div class="actions-group">
+        <a href="index.html" class="btn btn-primary">
+          <i class="fa-solid fa-house"></i>
+          <span>Return to Homepage</span>
+        </a>
+        <button type="button" class="btn btn-outline" onclick="handleGoBack()">
+          <i class="fa-solid fa-arrow-left"></i>
+          <span>Go Back</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    function handleGoBack() {
+      if (document.referrer && window.history.length > 1) {
+        var ref = document.referrer.toLowerCase();
+        if (ref.indexOf('404.html') === -1) {
+          window.history.back();
+          return;
+        }
+      }
+      window.location.href = 'index.html';
+    }
+  </script>
+</body>
+</html>

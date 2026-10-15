@@ -1,0 +1,1286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Client Dashboard — FinVantage Wealth Advisory</title>
+  <meta name="description" content="Client portfolio dashboard for reviewing financial plans, asset allocations, goals, and reports.">
+  <link rel="icon" type="image/webp" href="assets/icons/favicon.webp">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/client-dashboard.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+
+  <div class="client-dashboard-wrapper">
+    <!-- =======================================================
+         SIDEBAR (6 Advisory View Navigation Items)
+         ======================================================= -->
+    <aside class="client-sidebar" aria-label="Client Advisory Sidebar">
+      <div class="client-sidebar-header">
+        <a href="404.html" aria-label="Stackly Home">
+          <img src="assets/Brand-logo.webp" alt="Stackly Logo">
+        </a>
+        <button type="button" class="client-sidebar-close" aria-label="Close sidebar">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="client-advisory-badge">
+        <img src="assets/images/avatar-3.webp" alt="Elena Vance Avatar" id="clientProfileAvatar">
+        <div class="client-badge-info">
+          <div class="client-advisory-name" id="clientProfileName">Elena Vance</div>
+          <div class="client-advisory-email" id="clientProfileEmail">elena.vance@finvantage.local</div>
+          <div class="client-tier-pill"><i class="fa-solid fa-award me-1"></i> Advisory Portfolio (Demo)</div>
+        </div>
+      </div>
+
+      <nav class="client-sidebar-nav">
+        <ul>
+          <li>
+            <a href="#overview" class="client-sidebar-nav-item active" data-target-view="cview-overview">
+              <i class="fa-solid fa-chart-column"></i>
+              <span>Overview</span>
+            </a>
+          </li>
+          <li>
+            <a href="#plan" class="client-sidebar-nav-item" data-target-view="cview-plan">
+              <i class="fa-solid fa-compass"></i>
+              <span>Financial Plan</span>
+            </a>
+          </li>
+          <li>
+            <a href="#budget" class="client-sidebar-nav-item" data-target-view="cview-budget">
+              <i class="fa-solid fa-scale-balanced"></i>
+              <span>Budget &amp; Expenses</span>
+            </a>
+          </li>
+          <li>
+            <a href="#goals" class="client-sidebar-nav-item" data-target-view="cview-goals">
+              <i class="fa-solid fa-flag-checkered"></i>
+              <span>Savings Goals</span>
+            </a>
+          </li>
+          <li>
+            <a href="#reports" class="client-sidebar-nav-item" data-target-view="cview-reports">
+              <i class="fa-solid fa-file-contract"></i>
+              <span>Reports &amp; Documents</span>
+            </a>
+          </li>
+          <li>
+            <a href="#support" class="client-sidebar-nav-item" data-target-view="cview-support">
+              <i class="fa-solid fa-headset"></i>
+              <span>Profile &amp; Support</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="client-sidebar-footer">
+        <a href="404.html" class="sidebar-logout-btn">
+          <i class="fa-solid fa-arrow-right-from-bracket"></i>
+          <span>Log Out</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Mobile Sidebar Backdrop Overlay -->
+    <div class="client-sidebar-backdrop" id="clientSidebarBackdrop" aria-hidden="true"></div>
+
+    <!-- =======================================================
+         MAIN CLIENT WORKSPACE
+         ======================================================= -->
+    <div class="client-main-area">
+      <!-- Header -->
+      <header class="client-header">
+        <div class="client-header-left">
+          <button type="button" class="client-sidebar-toggle" aria-label="Toggle navigation drawer">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <a href="index.html" class="client-brand-mobile" aria-label="FinVantage Home">
+            <img src="assets/Brand-logo.webp" alt="FinVantage Logo" height="26">
+          </a>
+          <div class="client-header-title d-none d-lg-flex align-items-center gap-2">
+            <i class="fa-solid fa-briefcase text-accent"></i>
+            <span>Client Wealth Advisory</span>
+          </div>
+        </div>
+
+        <div class="client-header-right">
+          <div class="client-date-pill d-none d-lg-flex">
+            <i class="fa-regular fa-calendar me-1 text-accent"></i>
+            <span>October 12, 2026</span>
+          </div>
+
+          <button type="button" class="client-notif-btn" aria-label="Notifications" onclick="window.location.href='404.html';">
+            <i class="fa-regular fa-bell"></i>
+            <span class="client-notif-badge"></span>
+          </button>
+
+          <a href="404.html" class="client-avatar-badge" aria-label="Client Profile">
+            <span class="client-avatar-initial" id="clientAvatarInitial">E</span>
+          </a>
+
+          <a href="404.html" class="btn btn-outline-primary btn-sm d-none d-md-inline-flex" aria-label="Public Site">
+            <i class="fa-solid fa-house"></i> <span>Public Site</span>
+          </a>
+        </div>
+      </header>
+
+      <!-- Main Body -->
+      <main class="client-body">
+
+        <!-- =====================================================
+             VIEW 1: OVERVIEW
+             ===================================================== -->
+        <section id="cview-overview" class="client-view-section active">
+          <!-- Welcome Hero Section -->
+          <div class="client-welcome-hero">
+            <h1 class="client-welcome-title">Hello, <span id="clientWelcomeName">Elena</span> ! <i class="fa-solid fa-coins text-accent ms-1"></i></h1>
+            <p class="client-welcome-sub">Here is the fresh status of your client portfolio and advisory assets.</p>
+          </div>
+
+          <!-- Overview Header & Action Bar -->
+          <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
+            <div>
+              <h2 class="text-primary m-0">Client Portfolio Overview</h2>
+              <span class="text-muted small">Real-time discretionary capital allocation, liquidity reserves, and pacing metrics.</span>
+            </div>
+            <div class="d-flex flex-wrap gap-2">
+              <button type="button" class="btn btn-outline-primary btn-sm" onclick="window.location.href='404.html';">
+                <i class="fa-solid fa-headset me-1"></i> Consult Advisor
+              </button>
+              <button type="button" class="btn btn-outline-primary btn-sm" onclick="window.location.href='404.html';">
+                <i class="fa-solid fa-arrows-rotate me-1"></i> Request Rebalance
+              </button>
+              <button type="button" class="btn btn-primary btn-sm" onclick="window.location.href='404.html';">
+                <i class="fa-solid fa-download me-1"></i> Advisory Summary
+              </button>
+            </div>
+          </div>
+
+          <!-- Summary Cards -->
+          <div class="client-metric-grid mb-4">
+            <div class="client-metric-card">
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="text-muted small">Available Balance</span>
+                <div class="client-metric-icon"><i class="fa-solid fa-vault"></i></div>
+              </div>
+              <div class="client-metric-val">$142,600</div>
+              <span class="badge badge-primary">Liquid &amp; Fixed (Demo)</span>
+            </div>
+
+            <div class="client-metric-card">
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="text-muted small">Monthly Outflow</span>
+                <div class="client-metric-icon"><i class="fa-solid fa-credit-card"></i></div>
+              </div>
+              <div class="client-metric-val">$3,890</div>
+              <span class="badge badge-accent">Variance: -$310 (Favorable)</span>
+            </div>
+
+            <div class="client-metric-card">
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="text-muted small">Savings Progress</span>
+                <div class="client-metric-icon"><i class="fa-solid fa-bullseye"></i></div>
+              </div>
+              <div class="client-metric-val">84%</div>
+              <span class="badge badge-accent">On Pacing Target</span>
+            </div>
+
+            <div class="client-metric-card">
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="text-muted small">Upcoming Tasks</span>
+                <div class="client-metric-icon"><i class="fa-solid fa-calendar-check"></i></div>
+              </div>
+              <div class="client-metric-val">3 Pending</div>
+              <span class="badge badge-primary">Quarterly Rebalance</span>
+            </div>
+          </div>
+
+          <!-- Split Panels -->
+          <div class="client-panels-grid">
+            <!-- Asset Allocation Doughnut -->
+            <div class="card-premium">
+              <div class="d-flex justify-content-between align-items-center mb-3 pb-2 border-bottom border-light">
+                <div>
+                  <h4 class="text-primary m-0">Strategic Asset Distribution</h4>
+                  <span class="text-muted small">Client Capital Allocation Ratio (Demo)</span>
+                </div>
+                <span class="badge badge-primary">Simulated Ratio</span>
+              </div>
+              <div class="chart-canvas-container">
+                <canvas id="clientAssetDoughnutCanvas" data-height="250"></canvas>
+              </div>
+              <div class="d-flex justify-content-between mt-3 text-muted small flex-wrap gap-2">
+                <span><i class="fa-solid fa-circle me-1" style="color: #1F3C88;"></i> Equities: 55%</span>
+                <span><i class="fa-solid fa-circle me-1" style="color: #F5A623;"></i> Treasuries: 25%</span>
+                <span><i class="fa-solid fa-circle me-1" style="color: rgba(31, 60, 136, 0.65);"></i> Bonds: 15%</span>
+                <span><i class="fa-solid fa-circle me-1" style="color: rgba(245, 166, 35, 0.55);"></i> Alternatives: 5%</span>
+              </div>
+            </div>
+
+            <!-- Recent Activity & Goal Progress -->
+            <div class="card-premium">
+              <h4 class="text-primary mb-3 pb-2 border-bottom border-light">Advisory Activity Log</h4>
+              <div class="mb-3">
+                <span class="badge badge-subtle mb-1">Oct 08, 2026</span>
+                <h5 class="m-0 text-primary small fw-bold">Liquidity Reserve Rebalanced</h5>
+                <p class="text-muted small m-0">$5,000 allocated toward 6-month emergency treasury pool.</p>
+              </div>
+              <div class="mb-3">
+                <span class="badge badge-subtle mb-1">Oct 01, 2026</span>
+                <h5 class="m-0 text-primary small fw-bold">Q3 Cashflow Audit Finalized</h5>
+                <p class="text-muted small m-0">Net monthly savings rate averaged 32.4% over trailing quarter.</p>
+              </div>
+              <div class="mb-3">
+                <span class="badge badge-subtle mb-1">Sep 24, 2026</span>
+                <h5 class="m-0 text-primary small fw-bold">Tax Alpha Harvesting Implemented</h5>
+                <p class="text-muted small m-0">$1,420 capital gains offset captured in equity bucket.</p>
+              </div>
+              <div class="pt-3 border-top border-light mt-4">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <span class="fw-bold text-primary small">Annual Wealth Objective:</span>
+                  <span class="text-accent fw-bold small">84% Achieved</span>
+                </div>
+                <div class="progress" style="height: 10px;">
+                  <div class="progress-bar bg-accent" style="width: 84%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Recent Portfolio Executions Table -->
+          <div class="card-premium mt-4">
+            <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2">
+              <div>
+                <h4 class="text-primary m-0">Recent Advisory Executions &amp; Inflows</h4>
+                <span class="text-muted small">Audited capital inflows, dividend reinvestments, and fiduciary rebalances.</span>
+              </div>
+              <span class="badge badge-primary"><i class="fa-solid fa-shield-halved me-1"></i> Fiduciary Standard</span>
+            </div>
+            <div class="table-responsive">
+              <table class="dash-table">
+                <thead>
+                  <tr>
+                    <th>Milestone / Event</th>
+                    <th>Asset Class</th>
+                    <th>Execution Date</th>
+                    <th>Managed By</th>
+                    <th>Net Impact</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong class="text-primary">Q3 Portfolio Yield Re-investment</strong></td>
+                    <td>Broad Equities</td>
+                    <td>Oct 10, 2026</td>
+                    <td>Marcus Thorne, CFP</td>
+                    <td class="text-primary fw-bold">+$3,420.00</td>
+                    <td><span class="badge badge-primary">Verified</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong class="text-primary">High-Yield Treasury Ladder Purchase</strong></td>
+                    <td>Treasuries &amp; Cash</td>
+                    <td>Oct 04, 2026</td>
+                    <td>Automated Allocation</td>
+                    <td class="text-primary fw-bold">+$12,000.00</td>
+                    <td><span class="badge badge-primary">Completed</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong class="text-primary">Global Real Estate REIT Distribution</strong></td>
+                    <td>Alternative Assets</td>
+                    <td>Sep 28, 2026</td>
+                    <td>Custodian Dividend</td>
+                    <td class="text-primary fw-bold">+$890.50</td>
+                    <td><span class="badge badge-accent">Credited</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong class="text-primary">Tax-Loss Harvesting Rebalance</strong></td>
+                    <td>Domestic Index</td>
+                    <td>Sep 15, 2026</td>
+                    <td>Marcus Thorne, CFP</td>
+                    <td class="text-muted fw-bold">-$410.00 offset</td>
+                    <td><span class="badge badge-primary">Settled</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong class="text-primary">Quarterly Advisory Management Retainer</strong></td>
+                    <td>Advisory Services</td>
+                    <td>Sep 01, 2026</td>
+                    <td>Direct Debit</td>
+                    <td class="text-accent fw-bold">-$250.00</td>
+                    <td><span class="badge badge-subtle">Processed</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- =====================================================
+             VIEW 2: FINANCIAL PLAN
+             ===================================================== -->
+        <section id="cview-plan" class="client-view-section">
+          <div class="mb-4">
+            <h2 class="text-primary m-0">Strategic Financial Plan</h2>
+            <span class="text-muted small">Long-range wealth trajectory, compounding projections, and emergency reserve modeling.</span>
+          </div>
+
+          <!-- Planning KPIs -->
+          <div class="client-metric-grid mb-4">
+            <div class="client-metric-card">
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="text-muted small">Retirement Horizon</span>
+                <div class="client-metric-icon"><i class="fa-solid fa-hourglass-half"></i></div>
+              </div>
+              <div class="client-metric-val">14 Years</div>
+              <span class="badge badge-primary">Projected Net Worth $2.4M</span>
+            </div>
+
+            <div class="client-metric-card">
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="text-muted small">FI Ratio</span>
+                <div class="client-metric-icon"><i class="fa-solid fa-shield-halved"></i></div>
+              </div>
+              <div class="client-metric-val">68.4%</div>
+              <span class="badge badge-accent">Safe Withdrawal Rate: 3.8%</span>
+            </div>
+
+            <div class="client-metric-card">
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="text-muted small">Emergency Buffer</span>
+                <div class="client-metric-icon"><i class="fa-solid fa-umbrella"></i></div>
+              </div>
+              <div class="client-metric-val">6.2 Mos</div>
+              <span class="badge badge-accent">Funded ($23,560)</span>
+            </div>
+
+            <div class="client-metric-card">
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="text-muted small">Projected CAGR</span>
+                <div class="client-metric-icon"><i class="fa-solid fa-chart-line"></i></div>
+              </div>
+              <div class="client-metric-val">8.2%</div>
+              <span class="badge badge-primary">Risk-Adjusted Allocation</span>
+            </div>
+          </div>
+
+          <!-- Compounding Trajectory Line Chart -->
+          <div class="card-premium mb-4">
+            <div class="d-flex justify-content-between align-items-center mb-3 pb-2 border-bottom border-light flex-wrap gap-2">
+              <div>
+                <h4 class="text-primary m-0">5-Year Wealth Compounding &amp; Growth Trajectory</h4>
+                <span class="text-muted small">Simulated portfolio accumulation under strategic fiduciary allocation.</span>
+              </div>
+              <span class="badge badge-primary"><i class="fa-solid fa-arrow-trend-up me-1"></i> Blended Model</span>
+            </div>
+            <div class="chart-canvas-container">
+              <canvas id="clientPlanGrowthCanvas" data-height="250"></canvas>
+            </div>
+            <div class="d-flex justify-content-between mt-3 text-muted small flex-wrap gap-2">
+              <span><i class="fa-solid fa-circle me-1" style="color: #1F3C88;"></i> Advisory Compound Trajectory (8.2% CAGR)</span>
+              <span>Target 2031 Valuation: $415,000</span>
+            </div>
+          </div>
+
+          <!-- Interactive Emergency Fund Modeler -->
+          <div class="card-premium mb-4">
+            <h4 class="text-primary mb-2"><i class="fa-solid fa-calculator text-accent me-2"></i> Interactive Reserve Cushion Calculator</h4>
+            <p class="text-muted small mb-4">
+              Adjust your monthly baseline expenses and desired cushion duration to model your required liquidity buffer:
+            </p>
+            <div class="row d-flex flex-wrap gap-3 align-items-center">
+              <div class="col-flex-1">
+                <label for="cPlanMonthlyExpenses" class="form-label">Monthly Baseline Outflow ($)</label>
+                <input type="number" id="cPlanMonthlyExpenses" class="form-control" value="3800" min="500" step="100">
+              </div>
+              <div class="col-flex-1">
+                <label for="cPlanMonthsReserve" class="form-label">Reserve Months Desired</label>
+                <select id="cPlanMonthsReserve" class="form-control">
+                  <option value="3">3 Months (Aggressive Growth)</option>
+                  <option value="6" selected>6 Months (Standard Security)</option>
+                  <option value="9">9 Months (Conservative Cushion)</option>
+                  <option value="12">12 Months (Maximum Resilience)</option>
+                </select>
+              </div>
+              <div class="col-flex-1" style="background: var(--primary-tint); padding: 14px; border-radius: var(--radius-md); text-align: center;">
+                <span class="text-muted small d-block">Recommended Target Reserve</span>
+                <span id="cPlanTargetOutput" class="fw-bold text-primary" style="font-size: 1.6rem;">$22,800</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Multi-Horizon Strategic Milestones -->
+          <div class="row d-flex flex-wrap gap-3 mb-4">
+            <div class="card-premium col-flex-1">
+              <span class="badge badge-primary mb-2">Short-Term Horizon (1–2 Years)</span>
+              <h4 class="text-primary mb-2">Primary Residence Renovation</h4>
+              <p class="text-muted small">Capital target: $35,000. Currently saved: $28,000 (80%). Projected completion: June 2027.</p>
+              <div class="progress mb-2" style="height: 8px;">
+                <div class="progress-bar bg-accent" style="width: 80%;"></div>
+              </div>
+            </div>
+
+            <div class="card-premium col-flex-1">
+              <span class="badge badge-accent mb-2">Medium-Term Horizon (3–5 Years)</span>
+              <h4 class="text-primary mb-2">Real Estate Syndication Fund</h4>
+              <p class="text-muted small">Capital target: $75,000. Currently allocated: $42,000 (56%). Quarterly dividend sweep active.</p>
+              <div class="progress mb-2" style="height: 8px;">
+                <div class="progress-bar bg-primary" style="width: 56%;"></div>
+              </div>
+            </div>
+
+            <div class="card-premium col-flex-1">
+              <span class="badge badge-primary mb-2">Long-Term Horizon (5–10 Years)</span>
+              <h4 class="text-primary mb-2">Independent Capital Endowment</h4>
+              <p class="text-muted small">Capital target: $250,000. Currently allocated: $114,600 (45%). Automated monthly contribution active.</p>
+              <div class="progress mb-2" style="height: 8px;">
+                <div class="progress-bar bg-accent" style="width: 45%;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Strategic Milestone Roadmap Audit Table -->
+          <div class="card-premium">
+            <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2">
+              <div>
+                <h4 class="text-primary m-0">Strategic Capital Milestones Audit</h4>
+                <span class="text-muted small">Comprehensive sequencing of financial horizons and asset deployment.</span>
+              </div>
+              <span class="badge badge-primary">Fiduciary Roadmap</span>
+            </div>
+            <div class="table-responsive">
+              <table class="dash-table">
+                <thead>
+                  <tr>
+                    <th>Strategic Horizon</th>
+                    <th>Objective</th>
+                    <th>Capital Target</th>
+                    <th>Current Reserves</th>
+                    <th>Pacing</th>
+                    <th>Advisory Recommendation</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong class="text-primary">Horizon I (2026–2027)</strong></td>
+                    <td>Liquid Treasury Buffer</td>
+                    <td>$50,000</td>
+                    <td>$46,000</td>
+                    <td><span class="badge badge-primary">92%</span></td>
+                    <td class="small text-muted">Maintain short-duration yield ladder</td>
+                  </tr>
+                  <tr>
+                    <td><strong class="text-primary">Horizon I (2026–2027)</strong></td>
+                    <td>Residence Renovation</td>
+                    <td>$35,000</td>
+                    <td>$28,000</td>
+                    <td><span class="badge badge-primary">80%</span></td>
+                    <td class="small text-muted">Execute contractor escrow in Q2 2027</td>
+                  </tr>
+                  <tr>
+                    <td><strong class="text-primary">Horizon II (2028–2029)</strong></td>
+                    <td>Real Estate Syndication</td>
+                    <td>$75,000</td>
+                    <td>$42,000</td>
+                    <td><span class="badge badge-accent">56%</span></td>
+                    <td class="small text-muted">Accelerate quarterly dividend reinvestment</td>
+                  </tr>
+                  <tr>
+                    <td><strong class="text-primary">Horizon III (2030–2035)</strong></td>
+                    <td>Capital Endowment</td>
+                    <td>$250,000</td>
+                    <td>$114,600</td>
+                    <td><span class="badge badge-accent">45%</span></td>
+                    <td class="small text-muted">Continue dollar-cost averaging into broad index</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- =====================================================
+             VIEW 3: BUDGET & EXPENSES
+             ===================================================== -->
+        <section id="cview-budget" class="client-view-section">
+          <div class="mb-4">
+            <h2 class="text-primary m-0">Budget &amp; Expense Allocation</h2>
+            <span class="text-muted small">Planned versus actual comparative audits and discretionary cash flow management.</span>
+          </div>
+
+          <!-- Executive Budget KPI Cards -->
+          <div class="client-metric-grid mb-4">
+            <div class="client-metric-card">
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="text-muted small">Monthly Outflow Ceiling</span>
+                <div class="client-metric-icon"><i class="fa-solid fa-wallet"></i></div>
+              </div>
+              <div class="client-metric-val">$4,100.00</div>
+              <span class="badge badge-primary">Approved by Advisor</span>
+            </div>
+
+            <div class="client-metric-card">
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="text-muted small">Trailing Month Outflow</span>
+                <div class="client-metric-icon"><i class="fa-solid fa-receipt"></i></div>
+              </div>
+              <div class="client-metric-val">$3,590.00</div>
+              <span class="badge badge-accent">-$510 (Favorable)</span>
+            </div>
+
+            <div class="client-metric-card">
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="text-muted small">Budget Discipline Score</span>
+                <div class="client-metric-icon"><i class="fa-solid fa-gauge-high"></i></div>
+              </div>
+              <div class="client-metric-val">94.2%</div>
+              <span class="badge badge-accent">Optimal Efficiency</span>
+            </div>
+
+            <div class="client-metric-card">
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="text-muted small">Discretionary Surplus</span>
+                <div class="client-metric-icon"><i class="fa-solid fa-arrow-trend-up"></i></div>
+              </div>
+              <div class="client-metric-val">+$1,850.00</div>
+              <span class="badge badge-primary">Swept to Portfolio</span>
+            </div>
+          </div>
+
+          <div class="card-premium mb-4">
+            <div class="d-flex justify-content-between align-items-center mb-3 pb-2 border-bottom border-light flex-wrap gap-2">
+              <div>
+                <h4 class="text-primary m-0">Planned vs Actual Variance (Trailing Quarters)</h4>
+                <span class="text-muted small">Quarterly operating targets compared against realized cash outflows.</span>
+              </div>
+              <span class="badge badge-primary">Quarterly Audit</span>
+            </div>
+            <div class="chart-canvas-container">
+              <canvas id="clientVarianceBarCanvas" data-height="250"></canvas>
+            </div>
+          </div>
+
+          <!-- Category Progress Audits -->
+          <div class="card-premium mb-4">
+            <h4 class="text-primary mb-3">Monthly Category Audit &amp; Burn Rate</h4>
+            <div class="mb-3">
+              <div class="d-flex justify-content-between small mb-1">
+                <span class="fw-bold text-primary">Executive Housing &amp; Property Maintenance</span>
+                <strong>$2,200 Plan vs $2,050 Actual (+$150 Favorable)</strong>
+              </div>
+              <div class="progress" style="height: 10px;">
+                <div class="progress-bar bg-primary" style="width: 93%;"></div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <div class="d-flex justify-content-between small mb-1">
+                <span class="fw-bold text-primary">Executive Lifestyle &amp; Travel</span>
+                <strong>$1,100 Plan vs $940 Actual (+$160 Favorable)</strong>
+              </div>
+              <div class="progress" style="height: 10px;">
+                <div class="progress-bar bg-accent" style="width: 85%;"></div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <div class="d-flex justify-content-between small mb-1">
+                <span class="fw-bold text-primary">Family Health &amp; Advisory Retainer</span>
+                <strong>$600 Plan vs $600 Actual ($0 Balanced)</strong>
+              </div>
+              <div class="progress" style="height: 10px;">
+                <div class="progress-bar bg-primary" style="width: 100%;"></div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <div class="d-flex justify-content-between small mb-1">
+                <span class="fw-bold text-primary">Technology, Subscriptions &amp; Security</span>
+                <strong>$350 Plan vs $315 Actual (+$35 Favorable)</strong>
+              </div>
+              <div class="progress" style="height: 10px;">
+                <div class="progress-bar bg-accent" style="width: 90%;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Comprehensive Executive Expense Audit Table -->
+          <div class="card-premium">
+            <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2">
+              <div>
+                <h4 class="text-primary m-0">Executive Operating Outflow Audit</h4>
+                <span class="text-muted small">Comprehensive monthly line items with fiduciary variance tracking.</span>
+              </div>
+              <button type="button" class="btn btn-outline-primary btn-sm" onclick="window.location.href='404.html';">
+                <i class="fa-solid fa-file-export me-1"></i> Export Ledger
+              </button>
+            </div>
+            <div class="table-responsive">
+              <table class="dash-table">
+                <thead>
+                  <tr>
+                    <th>Cost Center / Envelope</th>
+                    <th>Monthly Target</th>
+                    <th>Actual Outflow</th>
+                    <th>Variance ($)</th>
+                    <th>Variance (%)</th>
+                    <th>Advisory Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong class="text-primary">Executive Housing &amp; Property Taxes</strong></td>
+                    <td>$2,200.00</td>
+                    <td>$2,050.00</td>
+                    <td class="text-primary fw-bold">+$150.00</td>
+                    <td>+6.8%</td>
+                    <td><span class="badge badge-primary">Under Ceiling</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong class="text-primary">Travel, Dining &amp; Premium Lifestyle</strong></td>
+                    <td>$1,100.00</td>
+                    <td>$940.00</td>
+                    <td class="text-primary fw-bold">+$160.00</td>
+                    <td>+14.5%</td>
+                    <td><span class="badge badge-primary">Under Ceiling</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong class="text-primary">Family Healthcare &amp; Wellness Retainer</strong></td>
+                    <td>$600.00</td>
+                    <td>$600.00</td>
+                    <td class="text-muted fw-bold">$0.00</td>
+                    <td>0.0%</td>
+                    <td><span class="badge badge-primary">On Target</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong class="text-primary">Technology, Subscriptions &amp; Utilities</strong></td>
+                    <td>$350.00</td>
+                    <td>$315.00</td>
+                    <td class="text-primary fw-bold">+$35.00</td>
+                    <td>+10.0%</td>
+                    <td><span class="badge badge-primary">Under Ceiling</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong class="text-primary">Advisory, Legal &amp; Accounting Reserves</strong></td>
+                    <td>$450.00</td>
+                    <td>$410.00</td>
+                    <td class="text-primary fw-bold">+$40.00</td>
+                    <td>+8.9%</td>
+                    <td><span class="badge badge-primary">Under Ceiling</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- =====================================================
+             VIEW 4: SAVINGS GOALS
+             ===================================================== -->
+        <section id="cview-goals" class="client-view-section">
+          <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
+            <div>
+              <h2 class="text-primary m-0">Portfolio Goals &amp; Capital Deployment</h2>
+              <span class="text-muted small">Collaborative targets monitored under the fiduciary wealth accumulation blueprint.</span>
+            </div>
+            <button type="button" class="btn btn-accent btn-sm" onclick="window.location.href='404.html';">
+              <i class="fa-solid fa-plus me-1"></i> Add Client Goal
+            </button>
+          </div>
+
+          <!-- Goal KPI Cards -->
+          <div class="client-metric-grid mb-4">
+            <div class="client-metric-card">
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="text-muted small">Total Goals Target</span>
+                <div class="client-metric-icon"><i class="fa-solid fa-trophy"></i></div>
+              </div>
+              <div class="client-metric-val">$245,000</div>
+              <span class="badge badge-primary">Across 4 Objectives</span>
+            </div>
+
+            <div class="client-metric-card">
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="text-muted small">Cumulative Capital</span>
+                <div class="client-metric-icon"><i class="fa-solid fa-piggy-bank"></i></div>
+              </div>
+              <div class="client-metric-val">$182,400</div>
+              <span class="badge badge-accent">74.4% Overall Completion</span>
+            </div>
+
+            <div class="client-metric-card">
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="text-muted small">Monthly Auto-Sweep</span>
+                <div class="client-metric-icon"><i class="fa-solid fa-arrows-spin"></i></div>
+              </div>
+              <div class="client-metric-val">$3,200 / mo</div>
+              <span class="badge badge-primary">Recurring Deployment</span>
+            </div>
+
+            <div class="client-metric-card">
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="text-muted small">Timeline Status</span>
+                <div class="client-metric-icon"><i class="fa-solid fa-flag-checkered"></i></div>
+              </div>
+              <div class="client-metric-val">Dec 2029</div>
+              <span class="badge badge-accent">4 Months Ahead of Plan</span>
+            </div>
+          </div>
+
+          <!-- Chart & Interactive Modeler Grid -->
+          <div class="client-panels-grid mb-4">
+            <!-- Goals Allocation Doughnut -->
+            <div class="card-premium">
+              <div class="d-flex justify-content-between align-items-center mb-3 pb-2 border-bottom border-light">
+                <div>
+                  <h4 class="text-primary m-0">Capital Deployment Allocation</h4>
+                  <span class="text-muted small">Distribution of active goal-directed capital.</span>
+                </div>
+                <span class="badge badge-primary">Active Portfolio</span>
+              </div>
+              <div class="chart-canvas-container">
+                <canvas id="clientGoalAllocationCanvas" data-height="250"></canvas>
+              </div>
+              <div class="d-flex justify-content-between mt-3 text-muted small flex-wrap gap-2">
+                <span><i class="fa-solid fa-circle me-1" style="color: #1F3C88;"></i> Treasury: 25%</span>
+                <span><i class="fa-solid fa-circle me-1" style="color: #F5A623;"></i> Growth: 37%</span>
+                <span><i class="fa-solid fa-circle me-1" style="color: rgba(31, 60, 136, 0.65);"></i> Real Estate: 22%</span>
+                <span><i class="fa-solid fa-circle me-1" style="color: rgba(245, 166, 35, 0.55);"></i> Education: 16%</span>
+              </div>
+            </div>
+
+            <!-- Interactive Goal Acceleration Simulator -->
+            <div class="card-premium">
+              <h4 class="text-primary mb-2"><i class="fa-solid fa-gauge-high text-accent me-2"></i> Goal Acceleration Modeler</h4>
+              <p class="text-muted small mb-3">Model the timeline impact of augmenting your discretionary monthly contribution:</p>
+              
+              <div class="form-group mb-3">
+                <label for="cGoalModelSelect" class="form-label">Target Milestone</label>
+                <select id="cGoalModelSelect" class="form-control">
+                  <option value="1">Liquid Treasury Buffer ($4,000 remaining)</option>
+                  <option value="2" selected>Tax-Advantaged Growth Basket ($21,600 remaining)</option>
+                  <option value="3">Private Real Estate Syndicate ($19,000 remaining)</option>
+                  <option value="4">Next-Gen Education Trust ($18,000 remaining)</option>
+                </select>
+              </div>
+
+              <div class="form-group mb-3">
+                <label for="cGoalModelExtra" class="form-label">Additional Monthly Sweep ($)</label>
+                <input type="number" id="cGoalModelExtra" class="form-control" value="500" min="100" step="100">
+              </div>
+
+              <div style="background: var(--primary-tint); padding: 14px; border-radius: var(--radius-md); text-align: center;">
+                <span class="text-muted small d-block">Estimated Expedited Acceleration</span>
+                <span id="cGoalModelResult" class="fw-bold text-primary" style="font-size: 1.35rem;">7 Months Faster</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4 Objective Cards -->
+          <div class="row d-flex flex-wrap gap-3 mb-4">
+            <div class="card-premium col-flex-1">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <h5 class="text-primary fw-bold m-0">Liquid Treasury Buffer</h5>
+                <span class="badge badge-primary">92% Funded</span>
+              </div>
+              <div class="progress my-2" style="height: 10px;">
+                <div class="progress-bar bg-primary" style="width: 92%;"></div>
+              </div>
+              <div class="d-flex justify-content-between small text-muted mb-3">
+                <span>Current: $46,000</span>
+                <span>Target: $50,000</span>
+                <span class="text-primary fw-bold">Remaining: $4,000</span>
+              </div>
+              <button type="button" class="btn btn-outline-primary btn-sm w-100" onclick="window.location.href='404.html';">
+                <i class="fa-solid fa-plus me-1"></i> Fast-Track Deposit
+              </button>
+            </div>
+
+            <div class="card-premium col-flex-1">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <h5 class="text-primary fw-bold m-0">Tax-Advantaged Growth Basket</h5>
+                <span class="badge badge-accent">76% Funded</span>
+              </div>
+              <div class="progress my-2" style="height: 10px;">
+                <div class="progress-bar bg-accent" style="width: 76%;"></div>
+              </div>
+              <div class="d-flex justify-content-between small text-muted mb-3">
+                <span>Current: $68,400</span>
+                <span>Target: $90,000</span>
+                <span class="text-primary fw-bold">Remaining: $21,600</span>
+              </div>
+              <button type="button" class="btn btn-outline-primary btn-sm w-100" onclick="window.location.href='404.html';">
+                <i class="fa-solid fa-plus me-1"></i> Fast-Track Deposit
+              </button>
+            </div>
+
+            <div class="card-premium col-flex-1">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <h5 class="text-primary fw-bold m-0">Private Real Estate Syndicate</h5>
+                <span class="badge badge-accent">68% Funded</span>
+              </div>
+              <div class="progress my-2" style="height: 10px;">
+                <div class="progress-bar bg-primary" style="width: 68%;"></div>
+              </div>
+              <div class="d-flex justify-content-between small text-muted mb-3">
+                <span>Current: $41,000</span>
+                <span>Target: $60,000</span>
+                <span class="text-primary fw-bold">Remaining: $19,000</span>
+              </div>
+              <button type="button" class="btn btn-outline-primary btn-sm w-100" onclick="window.location.href='404.html';">
+                <i class="fa-solid fa-plus me-1"></i> Fast-Track Deposit
+              </button>
+            </div>
+
+            <div class="card-premium col-flex-1">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <h5 class="text-primary fw-bold m-0">Next-Gen Education Trust</h5>
+                <span class="badge badge-subtle">60% Funded</span>
+              </div>
+              <div class="progress my-2" style="height: 10px;">
+                <div class="progress-bar bg-accent" style="width: 60%;"></div>
+              </div>
+              <div class="d-flex justify-content-between small text-muted mb-3">
+                <span>Current: $27,000</span>
+                <span>Target: $45,000</span>
+                <span class="text-primary fw-bold">Remaining: $18,000</span>
+              </div>
+              <button type="button" class="btn btn-outline-primary btn-sm w-100" onclick="window.location.href='404.html';">
+                <i class="fa-solid fa-plus me-1"></i> Fast-Track Deposit
+              </button>
+            </div>
+          </div>
+
+          <!-- Strategic Goals Execution Table -->
+          <div class="card-premium">
+            <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2">
+              <div>
+                <h4 class="text-primary m-0">Strategic Goals Deployment Ledger</h4>
+                <span class="text-muted small">Automated allocation schedule and completion forecast.</span>
+              </div>
+              <span class="badge badge-primary">Fiduciary Schedule</span>
+            </div>
+            <div class="table-responsive">
+              <table class="dash-table">
+                <thead>
+                  <tr>
+                    <th>Objective Title</th>
+                    <th>Risk Class</th>
+                    <th>Target Capital</th>
+                    <th>Funded Balance</th>
+                    <th>Monthly Contribution</th>
+                    <th>Forecast Date</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong class="text-primary">Liquid Treasury Buffer</strong></td>
+                    <td>Low Risk (Treasuries)</td>
+                    <td>$50,000</td>
+                    <td>$46,000</td>
+                    <td>$800 / mo</td>
+                    <td>Mar 2027</td>
+                    <td><span class="badge badge-primary">92% Funded</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong class="text-primary">Tax-Advantaged Growth Basket</strong></td>
+                    <td>Moderate (Broad Index)</td>
+                    <td>$90,000</td>
+                    <td>$68,400</td>
+                    <td>$1,200 / mo</td>
+                    <td>Aug 2028</td>
+                    <td><span class="badge badge-accent">76% Funded</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong class="text-primary">Private Real Estate Syndicate</strong></td>
+                    <td>Moderate-High (REITs)</td>
+                    <td>$60,000</td>
+                    <td>$41,000</td>
+                    <td>$700 / mo</td>
+                    <td>Nov 2028</td>
+                    <td><span class="badge badge-accent">68% Funded</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong class="text-primary">Next-Gen Education Trust</strong></td>
+                    <td>Balanced (Global ETF)</td>
+                    <td>$45,000</td>
+                    <td>$27,000</td>
+                    <td>$500 / mo</td>
+                    <td>Dec 2029</td>
+                    <td><span class="badge badge-subtle">60% Funded</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- =====================================================
+             VIEW 5: REPORTS & DOCUMENTS
+             ===================================================== -->
+        <section id="cview-reports" class="client-view-section">
+          <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
+            <div>
+              <h2 class="text-primary m-0">Reports &amp; Documents</h2>
+              <span class="text-muted small">Fiduciary financial statements, tax alpha filings, and downloadable audit summaries.</span>
+            </div>
+            <button type="button" class="btn btn-primary btn-sm" id="downloadClientDocBtn" onclick="window.location.href='404.html';">
+              <i class="fa-solid fa-download me-1"></i> Export Advisory Plan (CSV)
+            </button>
+          </div>
+
+          <!-- Reporting KPI Cards -->
+          <div class="client-metric-grid mb-4">
+            <div class="client-metric-card">
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="text-muted small">Trailing 12M Return</span>
+                <div class="client-metric-icon"><i class="fa-solid fa-chart-line"></i></div>
+              </div>
+              <div class="client-metric-val">+11.8%</div>
+              <span class="badge badge-accent">+2.4% vs Benchmark</span>
+            </div>
+
+            <div class="client-metric-card">
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="text-muted small">Tax Alpha Captured</span>
+                <div class="client-metric-icon"><i class="fa-solid fa-receipt"></i></div>
+              </div>
+              <div class="client-metric-val">$4,850.00</div>
+              <span class="badge badge-primary">Automated Harvesting</span>
+            </div>
+
+            <div class="client-metric-card">
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="text-muted small">Fiduciary Compliance</span>
+                <div class="client-metric-icon"><i class="fa-solid fa-stamp"></i></div>
+              </div>
+              <div class="client-metric-val">100% Passed</div>
+              <span class="badge badge-primary">Certified Audit</span>
+            </div>
+
+            <div class="client-metric-card">
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="text-muted small">Document Vault</span>
+                <div class="client-metric-icon"><i class="fa-solid fa-folder-closed"></i></div>
+              </div>
+              <div class="client-metric-val">18 Files</div>
+              <span class="badge badge-accent">Encrypted &amp; Ready</span>
+            </div>
+          </div>
+
+          <!-- Document Download Cards -->
+          <div class="row d-flex flex-wrap gap-3 mb-4">
+            <div class="document-list-item col-flex-1">
+              <div class="document-meta">
+                <i class="fa-solid fa-file-csv text-primary"></i>
+                <div>
+                  <h5 class="text-primary m-0">Client-Advisory-Summary-2026.csv</h5>
+                  <span class="text-muted small">Generated on demand • Asset allocations &amp; goals</span>
+                </div>
+              </div>
+              <button type="button" class="btn btn-outline-primary btn-sm" onclick="window.location.href='404.html';">
+                <i class="fa-solid fa-download"></i> Download
+              </button>
+            </div>
+
+            <div class="document-list-item col-flex-1">
+              <div class="document-meta">
+                <i class="fa-solid fa-file-lines text-primary"></i>
+                <div>
+                  <h5 class="text-primary m-0">Q3-2026-Fiduciary-Audit-Report.csv</h5>
+                  <span class="text-muted small">Comprehensive quarterly yield, expense &amp; risk audit</span>
+                </div>
+              </div>
+              <button type="button" class="btn btn-outline-primary btn-sm" onclick="window.location.href='404.html';">
+                <i class="fa-solid fa-download"></i> Download
+              </button>
+            </div>
+
+            <div class="document-list-item col-flex-1">
+              <div class="document-meta">
+                <i class="fa-solid fa-file-invoice-dollar text-primary"></i>
+                <div>
+                  <h5 class="text-primary m-0">Fiscal-Tax-Alpha-Harvesting-Schedule.csv</h5>
+                  <span class="text-muted small">Capital gains offset ledger and deductible advisory audit</span>
+                </div>
+              </div>
+              <button type="button" class="btn btn-outline-primary btn-sm" onclick="window.location.href='404.html';">
+                <i class="fa-solid fa-download"></i> Download
+              </button>
+            </div>
+
+            <div class="document-list-item col-flex-1">
+              <div class="document-meta">
+                <i class="fa-solid fa-shield-halved text-primary"></i>
+                <div>
+                  <h5 class="text-primary m-0">Liquidity-Stress-Test-Analysis.csv</h5>
+                  <span class="text-muted small">Emergency reserve simulation under conservative scenarios</span>
+                </div>
+              </div>
+              <button type="button" class="btn btn-outline-primary btn-sm" onclick="window.location.href='404.html';">
+                <i class="fa-solid fa-download"></i> Download
+              </button>
+            </div>
+          </div>
+
+          <!-- Historical Document Archive Table -->
+          <div class="card-premium mb-4">
+            <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2">
+              <div>
+                <h4 class="text-primary m-0">Document Vault &amp; Audit Archive</h4>
+                <span class="text-muted small">Permanent repository of verified advisory statements and compliance filings.</span>
+              </div>
+              <span class="badge badge-primary">256-Bit Encrypted</span>
+            </div>
+            <div class="table-responsive">
+              <table class="dash-table">
+                <thead>
+                  <tr>
+                    <th>Document Title</th>
+                    <th>Category</th>
+                    <th>Period / Date</th>
+                    <th>File Format</th>
+                    <th>Size</th>
+                    <th>Fiduciary Signer</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong class="text-primary">Q3 2026 Executive Portfolio Review</strong></td>
+                    <td>Quarterly Statement</td>
+                    <td>Oct 01, 2026</td>
+                    <td><span class="badge badge-subtle">CSV</span></td>
+                    <td>48 KB</td>
+                    <td>Marcus Thorne, CFP</td>
+                    <td>
+                      <button type="button" class="btn btn-outline-primary btn-sm" onclick="window.location.href='404.html';">
+                        <i class="fa-solid fa-download"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong class="text-primary">FY 2025–2026 Tax Loss Harvesting Summary</strong></td>
+                    <td>Tax Advisory</td>
+                    <td>Sep 15, 2026</td>
+                    <td><span class="badge badge-subtle">CSV</span></td>
+                    <td>36 KB</td>
+                    <td>Marcus Thorne, CFP</td>
+                    <td>
+                      <button type="button" class="btn btn-outline-primary btn-sm" onclick="window.location.href='404.html';">
+                        <i class="fa-solid fa-download"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong class="text-primary">Mid-Year Rebalance Execution Confirmation</strong></td>
+                    <td>Trade Confirmation</td>
+                    <td>Jul 12, 2026</td>
+                    <td><span class="badge badge-subtle">CSV</span></td>
+                    <td>24 KB</td>
+                    <td>Advisory Desk</td>
+                    <td>
+                      <button type="button" class="btn btn-outline-primary btn-sm" onclick="window.location.href='404.html';">
+                        <i class="fa-solid fa-download"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong class="text-primary">Q2 2026 Discretionary Burn Rate Analysis</strong></td>
+                    <td>Cashflow Audit</td>
+                    <td>Jun 30, 2026</td>
+                    <td><span class="badge badge-subtle">CSV</span></td>
+                    <td>42 KB</td>
+                    <td>Automated Engine</td>
+                    <td>
+                      <button type="button" class="btn btn-outline-primary btn-sm" onclick="window.location.href='404.html';">
+                        <i class="fa-solid fa-download"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong class="text-primary">Annual Wealth Accumulation Blueprint v2.4</strong></td>
+                    <td>Strategic Plan</td>
+                    <td>Jan 10, 2026</td>
+                    <td><span class="badge badge-subtle">CSV</span></td>
+                    <td>64 KB</td>
+                    <td>Marcus Thorne, CFP</td>
+                    <td>
+                      <button type="button" class="btn btn-outline-primary btn-sm" onclick="window.location.href='404.html';">
+                        <i class="fa-solid fa-download"></i>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="educational-badge">
+            <i class="fa-solid fa-circle-info"></i>
+            <span>Advisory notice: In this static client simulation, downloadable documents are generated client-side as CSV data. Real advisor brokerage statements require backend authorization.</span>
+          </div>
+        </section>
+
+        <!-- =====================================================
+             VIEW 6: PROFILE & SUPPORT
+             ===================================================== -->
+        <section id="cview-support" class="client-view-section">
+          <div class="mb-4">
+            <h2 class="text-primary m-0">Profile &amp; Advisory Support</h2>
+            <span class="text-muted small">Direct fiduciary concierge, dedicated wealth director, and client profile settings.</span>
+          </div>
+
+          <!-- Dedicated Senior Wealth Strategist Card -->
+          <div class="card-premium mb-4" style="background: linear-gradient(135deg, #FFFFFF 0%, var(--primary-tint) 100%); border-left: 4px solid var(--accent);">
+            <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
+              <div class="d-flex align-items-center gap-3">
+                <div style="width: 64px; height: 64px; border-radius: 50%; background: var(--primary); display: flex; align-items: center; justify-content: center; color: #FFFFFF; font-size: 1.8rem; box-shadow: var(--shadow-sm);">
+                  <i class="fa-solid fa-user-tie"></i>
+                </div>
+                <div>
+                  <div class="d-flex align-items-center gap-2">
+                    <h4 class="text-primary m-0">Marcus Thorne, CFP&reg;, ChFC&reg;</h4>
+                    <span class="badge badge-accent">Senior Wealth Director</span>
+                  </div>
+                  <span class="text-muted small d-block mt-1">
+                    <i class="fa-solid fa-phone me-1 text-primary"></i> 1800789456 &bull; 
+                    <i class="fa-solid fa-envelope me-1 text-primary ms-2"></i> info@stackly.com &bull;
+                    <i class="fa-solid fa-location-dot me-1 text-primary ms-2"></i> MMR Complex, Chinna Thirupathi, Salem, Tamil Nadu 636008
+                  </span>
+                  <span class="small text-primary fw-bold d-block mt-1">
+                    <i class="fa-regular fa-clock me-1 text-accent"></i> Next Scheduled Portfolio Review: November 12, 2026 &bull; 10:00 AM IST
+                  </span>
+                </div>
+              </div>
+              <div class="d-flex gap-2">
+                <button type="button" class="btn btn-outline-primary btn-sm" onclick="window.location.href='404.html';">
+                  <i class="fa-solid fa-calendar-plus me-1"></i> Book Review
+                </button>
+                <a href="404.html" class="btn btn-primary btn-sm">
+                  <i class="fa-solid fa-envelope me-1"></i> Send Email
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="row d-flex flex-wrap gap-4 mb-4">
+            <!-- Client Profile Form -->
+            <div class="card-premium col-flex-1">
+              <h4 class="text-primary mb-3">Client Profile Credentials</h4>
+              <form id="clientProfileUpdateForm" novalidate>
+                <div class="form-group">
+                  <label class="form-label" for="clientProfileInputName">Client Full Name</label>
+                  <input type="text" id="clientProfileInputName" class="form-control" value="Elena Vance">
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="clientProfileInputEmail">Advisory Email</label>
+                  <input type="email" id="clientProfileInputEmail" class="form-control" value="elena.vance@finvantage.local" readonly>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Advisory Membership Tier</label>
+                  <input type="text" class="form-control" value="FinVantage Private Advisory (Demo)" readonly>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Risk Tolerance Mandate</label>
+                  <select class="form-control">
+                    <option>Conservative Capital Preservation</option>
+                    <option selected>Moderate Balanced Growth (Recommended)</option>
+                    <option>Aggressive Capital Appreciation</option>
+                  </select>
+                </div>
+                <button type="submit" class="btn btn-outline-primary btn-sm">
+                  <i class="fa-solid fa-floppy-disk me-1"></i> Save Profile Details
+                </button>
+              </form>
+            </div>
+
+            <!-- Concierge Support Form -->
+            <div class="card-premium col-flex-1-2">
+              <h4 class="text-primary mb-3">Concierge Support Request</h4>
+              <div id="clientSupportStatus"></div>
+              <form id="clientSupportForm">
+                <div class="form-group">
+                  <label for="cSupportSubject" class="form-label">Inquiry Subject *</label>
+                  <input type="text" id="cSupportSubject" class="form-control" placeholder="e.g. Schedule asset rebalance discussion" required>
+                </div>
+                <div class="form-group">
+                  <label for="cSupportMsg" class="form-label">Message *</label>
+                  <textarea id="cSupportMsg" class="form-control" placeholder="Type your advisory question..." required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">
+                  <span>Send Support Request</span>
+                  <i class="fa-solid fa-paper-plane ms-1"></i>
+                </button>
+              </form>
+            </div>
+          </div>
+
+          <!-- Recent Concierge Tickets Table -->
+          <div class="card-premium">
+            <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2">
+              <div>
+                <h4 class="text-primary m-0">Recent Advisory Tickets &amp; Concierge Log</h4>
+                <span class="text-muted small">Tracking direct communication with your dedicated wealth management desk.</span>
+              </div>
+              <span class="badge badge-primary">Private Log</span>
+            </div>
+            <div class="table-responsive">
+              <table class="dash-table">
+                <thead>
+                  <tr>
+                    <th>Ticket ID</th>
+                    <th>Subject / Inquiry</th>
+                    <th>Channel</th>
+                    <th>Date Submitted</th>
+                    <th>Fiduciary Status</th>
+                    <th>Response Time</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong class="text-primary">#ADV-8491</strong></td>
+                    <td>Q4 Capital Deployment Allocation Adjustment</td>
+                    <td>Concierge Portal</td>
+                    <td>Oct 09, 2026</td>
+                    <td><span class="badge badge-primary">Resolved</span></td>
+                    <td class="text-muted small">18 mins</td>
+                  </tr>
+                  <tr>
+                    <td><strong class="text-primary">#ADV-8230</strong></td>
+                    <td>Foreign Dividend Withholding Documentation</td>
+                    <td>Email Advisory</td>
+                    <td>Sep 22, 2026</td>
+                    <td><span class="badge badge-primary">Completed</span></td>
+                    <td class="text-muted small">42 mins</td>
+                  </tr>
+                  <tr>
+                    <td><strong class="text-primary">#ADV-7914</strong></td>
+                    <td>High-Yield Cash Ladder Execution Inquiry</td>
+                    <td>Direct Call</td>
+                    <td>Sep 05, 2026</td>
+                    <td><span class="badge badge-primary">Completed</span></td>
+                    <td class="text-muted small">15 mins</td>
+                  </tr>
+                  <tr>
+                    <td><strong class="text-primary">#ADV-7502</strong></td>
+                    <td>Annual Tax Alpha Schedule Preparation</td>
+                    <td>Concierge Portal</td>
+                    <td>Aug 18, 2026</td>
+                    <td><span class="badge badge-subtle">Archived</span></td>
+                    <td class="text-muted small">1 hour</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <div id="globalToast" class="global-toast"></div>
+  <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Dashboard — FinVantage Personal Finance</title>
+  <meta name="description" content="Personal financial management dashboard: budgets, cashflow tracking, goals, and reports.">
+  <link rel="icon" type="image/webp" href="assets/icons/favicon.webp">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/user-dashboard.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+
+  <div class="user-dashboard-wrapper">
+    <!-- =======================================================
+         SIDEBAR (6 View Navigation Items)
+         ======================================================= -->
+    <aside class="dash-sidebar" aria-label="Dashboard Sidebar">
+      <div class="dash-sidebar-header">
+        <a href="404.html" aria-label="Stackly Home">
+          <img src="assets/Brand-logo.webp" alt="Stackly Logo">
+        </a>
+        <button type="button" class="dash-sidebar-close" aria-label="Close sidebar">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="dash-user-profile-badge">
+        <img src="assets/images/avatar-user.webp" alt="Alex Morgan Avatar" id="dashProfileAvatar">
+        <div class="profile-badge-info">
+          <div class="profile-badge-name" id="dashProfileName">Alex Morgan</div>
+          <div class="profile-badge-email" id="dashProfileEmail">alex.morgan@finvantage.local</div>
+          <div class="profile-badge-status">Standard Member (Demo)</div>
+        </div>
+      </div>
+
+      <nav class="dash-sidebar-nav">
+        <ul>
+          <li>
+            <a href="#overview" class="sidebar-nav-item active" data-target-view="view-overview">
+              <i class="fa-solid fa-chart-pie"></i>
+              <span>Overview</span>
+            </a>
+          </li>
+          <li>
+            <a href="#budget" class="sidebar-nav-item" data-target-view="view-budget">
+              <i class="fa-solid fa-sliders"></i>
+              <span>My Budget</span>
+            </a>
+          </li>
+          <li>
+            <a href="#transactions" class="sidebar-nav-item" data-target-view="view-transactions">
+              <i class="fa-solid fa-receipt"></i>
+              <span>Transactions</span>
+            </a>
+          </li>
+          <li>
+            <a href="#goals" class="sidebar-nav-item" data-target-view="view-goals">
+              <i class="fa-solid fa-bullseye"></i>
+              <span>Savings Goals</span>
+            </a>
+          </li>
+          <li>
+            <a href="#reports" class="sidebar-nav-item" data-target-view="view-reports">
+              <i class="fa-solid fa-chart-line"></i>
+              <span>Financial Reports</span>
+            </a>
+          </li>
+          <li>
+            <a href="#settings" class="sidebar-nav-item" data-target-view="view-settings">
+              <i class="fa-solid fa-gear"></i>
+              <span>Profile &amp; Settings</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="dash-sidebar-footer">
+        <a href="404.html" class="sidebar-logout-btn">
+          <i class="fa-solid fa-arrow-right-from-bracket"></i>
+          <span>Log Out</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Mobile Sidebar Backdrop Overlay -->
+    <div class="dash-sidebar-backdrop" id="dashSidebarBackdrop" aria-hidden="true"></div>
+
+    <!-- =======================================================
+         MAIN DASHBOARD WORKSPACE
+         ======================================================= -->
+    <div class="dash-main-area">
+      <!-- Top Header -->
+      <header class="dash-header">
+        <div class="dash-header-left">
+          <button type="button" class="dash-sidebar-toggle" aria-label="Toggle navigation drawer">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <a href="index.html" class="dash-brand-mobile" aria-label="FinVantage Home">
+            <img src="assets/Brand-logo.webp" alt="FinVantage Logo" height="26">
+          </a>
+          <div class="dash-header-title d-none d-lg-flex align-items-center gap-2">
+            <i class="fa-solid fa-gauge-high text-accent"></i>
+            <span>Personal Dashboard</span>
+          </div>
+        </div>
+
+        <div class="dash-header-right">
+          <div class="dash-date-pill d-none d-lg-flex">
+            <i class="fa-regular fa-calendar me-1 text-accent"></i>
+            <span>October 12, 2026</span>
+          </div>
+
+          <button type="button" class="dash-notif-btn" aria-label="Notifications" onclick="window.location.href='404.html';">
+            <i class="fa-regular fa-bell"></i>
+            <span class="dash-notif-badge"></span>
+          </button>
+
+          <a href="404.html" class="dash-avatar-badge" aria-label="User Profile">
+            <span class="dash-avatar-initial" id="dashAvatarInitial">A</span>
+          </a>
+
+          <a href="404.html" class="btn btn-outline-primary btn-sm d-none d-md-inline-flex" aria-label="Public Site">
+            <i class="fa-solid fa-house"></i> <span>Public Site</span>
+          </a>
+        </div>
+      </header>
+
+      <!-- Dashboard View Containers -->
+      <main class="dash-body">
+
+        <!-- =====================================================
+             VIEW 1: OVERVIEW
+             ===================================================== -->
+        <section id="view-overview" class="dash-view-section active">
+          <!-- Welcome Hero Section -->
+          <div class="dash-welcome-hero">
+            <h1 class="dash-welcome-title">Hello, <span id="dashWelcomeName">Alex</span> ! <i class="fa-solid fa-coins text-accent ms-1"></i></h1>
+            <p class="dash-welcome-sub">Here is the fresh status of your personal finances and savings goals.</p>
+          </div>
+
+          <!-- Summary Cards -->
+          <div class="metric-cards-grid">
+            <div class="metric-stat-card">
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="text-muted small">Total Balance (Demo)</span>
+                <div class="metric-icon-wrap"><i class="fa-solid fa-vault"></i></div>
+              </div>
+              <div class="metric-val">$84,250</div>
+              <span class="badge badge-primary"><i class="fa-solid fa-arrow-up me-1"></i> +4.2% This Month</span>
+            </div>
+
+            <div class="metric-stat-card">
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="text-muted small">Monthly Income</span>
+                <div class="metric-icon-wrap"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+              </div>
+              <div class="metric-val">$9,650</div>
+              <span class="badge badge-primary">Direct Inflow</span>
+            </div>
+
+            <div class="metric-stat-card">
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="text-muted small">Monthly Expenses</span>
+                <div class="metric-icon-wrap"><i class="fa-solid fa-credit-card"></i></div>
+              </div>
+              <div class="metric-val">$4,120</div>
+              <span class="badge badge-accent">Under Allocation</span>
+            </div>
+
+            <div class="metric-stat-card">
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="text-muted small">Total Savings</span>
+                <div class="metric-icon-wrap"><i class="fa-solid fa-piggy-bank"></i></div>
+              </div>
+              <div class="metric-val">$32,800</div>
+              <span class="badge badge-accent">Liquid Capital</span>
+            </div>
+          </div>
+
+          <!-- Charts & Overview Panels -->
+          <div class="overview-panels-grid">
+            <!-- Cashflow Chart -->
+            <div class="card-premium">
+              <div class="d-flex justify-content-between align-items-center mb-3 pb-2 border-bottom border-light">
+                <div>
+                  <h4 class="text-primary m-0">Cashflow Dynamics</h4>
+                  <span class="text-muted small">Income vs Outflow Pacing (Demo)</span>
+                </div>
+                <span class="badge badge-primary">Real-Time Canvas</span>
+              </div>
+              <div class="chart-canvas-container">
+                <canvas id="overviewCashflowCanvas" data-height="250"></canvas>
+              </div>
+              <div class="d-flex justify-content-between mt-3 text-muted small">
+                <span><i class="fa-solid fa-square text-primary me-1"></i> Total Income ($6,100)</span>
+                <span><i class="fa-solid fa-square text-accent me-1"></i> Total Expenses ($3,200)</span>
+                <span class="fw-bold text-primary">Monthly Delta: +$2,900</span>
+              </div>
+            </div>
+
+            <!-- Budget Progress Mini Summary -->
+            <div class="card-premium">
+              <div class="d-flex justify-content-between align-items-center mb-3 pb-2 border-bottom border-light">
+                <h4 class="text-primary m-0">Budget Progress</h4>
+                <a href="404.html" class="small text-accent fw-bold" onclick="window.location.href='404.html';">Manage</a>
+              </div>
+              <div class="mb-3">
+                <div class="d-flex justify-content-between small mb-1">
+                  <span>Housing &amp; Utilities</span>
+                  <strong>88%</strong>
+                </div>
+                <div class="progress" style="height: 8px;">
+                  <div class="progress-bar bg-primary" style="width: 88%;"></div>
+                </div>
+              </div>
+              <div class="mb-3">
+                <div class="d-flex justify-content-between small mb-1">
+                  <span>Groceries &amp; Food</span>
+                  <strong>86%</strong>
+                </div>
+                <div class="progress" style="height: 8px;">
+                  <div class="progress-bar bg-accent" style="width: 86%;"></div>
+                </div>
+              </div>
+              <div class="mb-3">
+                <div class="d-flex justify-content-between small mb-1">
+                  <span>Transportation</span>
+                  <strong>86%</strong>
+                </div>
+                <div class="progress" style="height: 8px;">
+                  <div class="progress-bar bg-primary" style="width: 86%;"></div>
+                </div>
+              </div>
+              <div class="p-3 bg-light rounded text-muted small mt-4 border border-light">
+                <i class="fa-solid fa-circle-check text-accent me-1"></i> You have preserved 42% of discretionary income this month.
+            </div>
+          </div>
+
+          <!-- Quick Action Bar & Recent Entries Preview -->
+          <div class="card-premium mt-4">
+            <div class="d-flex justify-content-between align-items-center mb-3 pb-2 border-bottom border-light flex-wrap gap-2">
+              <div>
+                <h4 class="text-primary m-0">Recent Activity &amp; Quick Operations</h4>
+                <span class="text-muted small">Latest ledger entries across your personal envelopes</span>
+              </div>
+              <div class="d-flex gap-2 flex-wrap">
+                <button type="button" class="btn btn-primary btn-sm" onclick="window.location.href='404.html';">
+                  <i class="fa-solid fa-plus me-1"></i> Log Entry
+                </button>
+                <button type="button" class="btn btn-accent btn-sm" onclick="window.location.href='404.html';">
+                  <i class="fa-solid fa-sliders me-1"></i> Envelopes
+                </button>
+              </div>
+            </div>
+
+            <div class="table-responsive">
+              <table class="dash-table">
+                <thead>
+                  <tr>
+                    <th>Description</th>
+                    <th>Date</th>
+                    <th>Category</th>
+                    <th>Flow Type</th>
+                    <th class="text-end">Amount</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Salary Direct Deposit</strong></td>
+                    <td>Oct 12, 2026</td>
+                    <td><span class="badge badge-primary">Income</span></td>
+                    <td><span class="text-success"><i class="fa-solid fa-arrow-down me-1"></i> Inflow</span></td>
+                    <td class="text-end fw-bold text-primary">+$4,200.00</td>
+                  </tr>
+                  <tr>
+                    <td>Apex Residences Rent</td>
+                    <td>Oct 10, 2026</td>
+                    <td><span class="badge badge-subtle">Housing</span></td>
+                    <td><span class="text-accent"><i class="fa-solid fa-arrow-up me-1"></i> Outflow</span></td>
+                    <td class="text-end fw-bold text-accent">-$1,950.00</td>
+                  </tr>
+                  <tr>
+                    <td>Whole Foods Market</td>
+                    <td>Oct 08, 2026</td>
+                    <td><span class="badge badge-subtle">Groceries</span></td>
+                    <td><span class="text-accent"><i class="fa-solid fa-arrow-up me-1"></i> Outflow</span></td>
+                    <td class="text-end fw-bold text-accent">-$142.50</td>
+                  </tr>
+                  <tr>
+                    <td>Liquid Savings Reserve Fund</td>
+                    <td>Oct 05, 2026</td>
+                    <td><span class="badge badge-accent">Savings</span></td>
+                    <td><span class="text-primary"><i class="fa-solid fa-vault me-1"></i> Transfer</span></td>
+                    <td class="text-end fw-bold text-primary">+$500.00</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="text-end mt-3">
+              <a href="404.html" class="small text-accent fw-bold text-decoration-none" onclick="window.location.href='404.html';">
+                View Full Transaction Journal (12 Entries) <i class="fa-solid fa-arrow-right ms-1"></i>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- =====================================================
+             VIEW 2: MY BUDGET
+             ===================================================== -->
+        <section id="view-budget" class="dash-view-section">
+          <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
+            <div>
+              <h2 class="text-primary m-0">My Budget Matrix</h2>
+              <span class="text-muted small">Manage monthly envelopes, track spending limits, and maintain positive cash variance.</span>
+            </div>
+            <div class="d-flex gap-2 flex-wrap">
+              <button type="button" class="btn btn-accent btn-sm" onclick="window.location.href='404.html';">
+                <i class="fa-solid fa-plus me-1"></i> Add Category
+              </button>
+            </div>
+          </div>
+
+          <!-- Budget KPI Statistics -->
+          <div class="metric-cards-grid mb-4">
+            <div class="metric-stat-card">
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="text-muted small">Planned Monthly Budget</span>
+                <div class="metric-icon-wrap"><i class="fa-solid fa-calculator"></i></div>
+              </div>
+              <div class="metric-val">$4,300.00</div>
+              <span class="badge badge-primary">Total Allocation</span>
+            </div>
+
+            <div class="metric-stat-card">
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="text-muted small">Total Spent Month-to-Date</span>
+                <div class="metric-icon-wrap"><i class="fa-solid fa-receipt"></i></div>
+              </div>
+              <div class="metric-val">$3,670.00</div>
+              <span class="badge badge-accent">85.3% Pacing</span>
+            </div>
+
+            <div class="metric-stat-card">
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="text-muted small">Safe Remaining Cushion</span>
+                <div class="metric-icon-wrap"><i class="fa-solid fa-shield-halved"></i></div>
+              </div>
+              <div class="metric-val">+$630.00</div>
+              <span class="badge badge-primary">Positive Variance</span>
+            </div>
+
+            <div class="metric-stat-card">
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="text-muted small">Envelope Discipline</span>
+                <div class="metric-icon-wrap"><i class="fa-solid fa-circle-check"></i></div>
+              </div>
+              <div class="metric-val">5 / 5 Healthy</div>
+              <span class="badge badge-accent">Zero Overages</span>
+            </div>
+          </div>
+
+          <!-- Charts & Allocation Health Split -->
+          <div class="overview-panels-grid mb-4">
+            <!-- Doughnut Chart Canvas -->
+            <div class="card-premium">
+              <div class="d-flex justify-content-between align-items-center mb-3 pb-2 border-bottom border-light">
+                <h4 class="text-primary m-0">Envelope Allocation Ratios</h4>
+                <span class="badge badge-primary">5 Categories</span>
+              </div>
+              <div class="chart-canvas-container">
+                <canvas id="userBudgetDoughnutCanvas" data-height="240"></canvas>
+              </div>
+              <div class="d-flex justify-content-between mt-3 text-muted small flex-wrap gap-2">
+                <span>Housing: 51%</span>
+                <span>Groceries: 21%</span>
+                <span>Transit: 10%</span>
+                <span>Leisure: 9%</span>
+                <span>Health: 9%</span>
+              </div>
+            </div>
+
+            <!-- 50/30/20 Guidelines Card -->
+            <div class="card-premium">
+              <h4 class="text-primary mb-3 pb-2 border-bottom border-light">50 / 30 / 20 Framework Audit</h4>
+              <div class="mb-3">
+                <div class="d-flex justify-content-between small mb-1">
+                  <span>Essential Needs (Max 50%)</span>
+                  <strong>48.2% Active</strong>
+                </div>
+                <div class="progress" style="height: 8px;">
+                  <div class="progress-bar bg-primary" style="width: 48.2%;"></div>
+                </div>
+              </div>
+              <div class="mb-3">
+                <div class="d-flex justify-content-between small mb-1">
+                  <span>Discretionary Wants (Max 30%)</span>
+                  <strong>23.6% Active</strong>
+                </div>
+                <div class="progress" style="height: 8px;">
+                  <div class="progress-bar bg-accent" style="width: 23.6%;"></div>
+                </div>
+              </div>
+              <div class="mb-3">
+                <div class="d-flex justify-content-between small mb-1">
+                  <span>Savings &amp; Debt Paydown (Min 20%)</span>
+                  <strong>28.2% Active</strong>
+                </div>
+                <div class="progress" style="height: 8px;">
+                  <div class="progress-bar bg-primary" style="width: 28.2%;"></div>
+                </div>
+              </div>
+              <div class="p-3 bg-light rounded text-muted small mt-3 border border-light">
+                <i class="fa-solid fa-lightbulb text-accent me-1"></i> Your personal allocation exceeds standard savings targets by <strong>+8.2%</strong> this cycle.
+              </div>
+            </div>
+          </div>
+
+          <!-- Dynamic Envelopes Container -->
+          <div class="mb-4">
+            <h4 class="text-primary mb-3">Active Envelope Status</h4>
+            <div id="userBudgetList">
+              <!-- Dynamically Rendered via script.js -->
+            </div>
+          </div>
+
+          <!-- Comparative Envelope Audit Table -->
+          <div class="card-premium p-0">
+            <div class="p-3 border-bottom border-light d-flex justify-content-between align-items-center">
+              <h4 class="text-primary m-0">Monthly Envelope Variance Table</h4>
+              <span class="badge badge-subtle">Audit Period: Oct 2026</span>
+            </div>
+            <div class="table-responsive">
+              <table class="dash-table">
+                <thead>
+                  <tr>
+                    <th>Category</th>
+                    <th>Planned Envelope</th>
+                    <th>Actual Outflow</th>
+                    <th>Net Variance</th>
+                    <th>Pacing</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Housing &amp; Utilities</strong></td>
+                    <td>$2,200.00</td>
+                    <td>$1,950.00</td>
+                    <td class="text-primary fw-bold">+$250.00</td>
+                    <td>88.6%</td>
+                    <td><span class="badge badge-primary">Under Budget</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Groceries &amp; Dining</strong></td>
+                    <td>$900.00</td>
+                    <td>$780.00</td>
+                    <td class="text-primary fw-bold">+$120.00</td>
+                    <td>86.7%</td>
+                    <td><span class="badge badge-primary">Under Budget</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Transportation</strong></td>
+                    <td>$450.00</td>
+                    <td>$390.00</td>
+                    <td class="text-primary fw-bold">+$60.00</td>
+                    <td>86.7%</td>
+                    <td><span class="badge badge-primary">Under Budget</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Healthcare &amp; Wellness</strong></td>
+                    <td>$350.00</td>
+                    <td>$210.00</td>
+                    <td class="text-primary fw-bold">+$140.00</td>
+                    <td>60.0%</td>
+                    <td><span class="badge badge-primary">Favorable</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Entertainment &amp; Leisure</strong></td>
+                    <td>$400.00</td>
+                    <td>$340.00</td>
+                    <td class="text-primary fw-bold">+$60.00</td>
+                    <td>85.0%</td>
+                    <td><span class="badge badge-accent">Controlled</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- =====================================================
+             VIEW 3: TRANSACTIONS
+             ===================================================== -->
+        <section id="view-transactions" class="dash-view-section">
+          <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
+            <div>
+              <h2 class="text-primary m-0">Transaction Journal</h2>
+              <span class="text-muted small">Search, filter, categorize, and audit verified personal cashflow entries.</span>
+            </div>
+            <div class="d-flex gap-2 flex-wrap">
+              <button type="button" class="btn btn-accent btn-sm" onclick="window.location.href='404.html';">
+                <i class="fa-solid fa-plus me-1"></i> Log Transaction
+              </button>
+              <button type="button" class="btn btn-primary btn-sm" onclick="window.location.href='404.html';">
+                <i class="fa-solid fa-file-csv me-1"></i> Export Ledger
+              </button>
+            </div>
+          </div>
+
+          <!-- Transactions KPI Statistics -->
+          <div class="metric-cards-grid mb-4">
+            <div class="metric-stat-card">
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="text-muted small">Total Monthly Inflows</span>
+                <div class="metric-icon-wrap"><i class="fa-solid fa-arrow-down"></i></div>
+              </div>
+              <div class="metric-val text-primary">+$9,650.00</div>
+              <span class="badge badge-primary">Salary &amp; Capital</span>
+            </div>
+
+            <div class="metric-stat-card">
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="text-muted small">Total Monthly Outflows</span>
+                <div class="metric-icon-wrap"><i class="fa-solid fa-arrow-up"></i></div>
+              </div>
+              <div class="metric-val text-accent">-$4,120.00</div>
+              <span class="badge badge-accent">Debited Expenses</span>
+            </div>
+
+            <div class="metric-stat-card">
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="text-muted small">Net Cashflow Margin</span>
+                <div class="metric-icon-wrap"><i class="fa-solid fa-scale-balanced"></i></div>
+              </div>
+              <div class="metric-val">+$5,530.00</div>
+              <span class="badge badge-primary">Retained Capital</span>
+            </div>
+
+            <div class="metric-stat-card">
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="text-muted small">Verified Records</span>
+                <div class="metric-icon-wrap"><i class="fa-solid fa-list-check"></i></div>
+              </div>
+              <div class="metric-val">12 Entries</div>
+              <span class="badge badge-subtle">Audit Complete</span>
+            </div>
+          </div>
+
+          <!-- Weekly Flow Volume Visual Panel -->
+          <div class="card-premium mb-4">
+            <div class="d-flex justify-content-between align-items-center mb-3 pb-2 border-bottom border-light">
+              <div>
+                <h4 class="text-primary m-0">Weekly Outflow Velocity</h4>
+                <span class="text-muted small">Weekly expenditure compared against gross weekly cash inflows</span>
+              </div>
+              <span class="badge badge-primary">4-Week Trace</span>
+            </div>
+            <div class="chart-canvas-container">
+              <canvas id="userTxnVolumeCanvas" data-height="230"></canvas>
+            </div>
+          </div>
+
+          <!-- Filter Toolbar -->
+          <div class="card-premium mb-4 p-3">
+            <div class="row d-flex flex-wrap gap-3 align-items-center">
+              <div class="col-flex-2">
+                <label for="txnSearchInput" class="form-label small text-muted mb-1">Search Keywords</label>
+                <input type="text" id="txnSearchInput" class="form-control" placeholder="Search by merchant, note, or category...">
+              </div>
+              <div class="col-flex-1">
+                <label for="txnFilterCategory" class="form-label small text-muted mb-1">Category Filter</label>
+                <select id="txnFilterCategory" class="form-control">
+                  <option value="all">All Categories</option>
+                  <option value="Income">Income</option>
+                  <option value="Housing">Housing</option>
+                  <option value="Groceries">Groceries</option>
+                  <option value="Utilities">Utilities</option>
+                  <option value="Savings">Savings</option>
+                  <option value="Transport">Transport</option>
+                </select>
+              </div>
+              <div class="col-flex-1">
+                <label for="txnSortSelect" class="form-label small text-muted mb-1">Sort Ordering</label>
+                <select id="txnSortSelect" class="form-control">
+                  <option value="date-desc">Newest First</option>
+                  <option value="date-asc">Oldest First</option>
+                  <option value="amount-desc">Highest Amount</option>
+                  <option value="amount-asc">Lowest Amount</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Transaction Table Card -->
+          <div class="card-premium p-0">
+            <div class="table-responsive">
+              <table class="dash-table">
+                <thead>
+                  <tr>
+                    <th>Description</th>
+                    <th>Date</th>
+                    <th>Category</th>
+                    <th>Type</th>
+                    <th class="text-end">Amount</th>
+                  </tr>
+                </thead>
+                <tbody id="userTxnTableBody">
+                  <!-- Populated via script.js -->
+                </tbody>
+              </table>
+            </div>
+            <div class="p-3 border-top border-light d-flex justify-content-between align-items-center small text-muted flex-wrap gap-2">
+              <span>Showing client-side simulated transactions. No backend dependency.</span>
+              <span class="fw-bold text-primary">Status: In Sync</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- =====================================================
+             VIEW 4: SAVINGS GOALS
+             ===================================================== -->
+        <section id="view-goals" class="dash-view-section">
+          <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
+            <div>
+              <h2 class="text-primary m-0">Savings Goals &amp; Targets</h2>
+              <span class="text-muted small">Targeted capital accumulation pools with automated milestone pacing.</span>
+            </div>
+            <button type="button" class="btn btn-accent btn-sm" onclick="window.location.href='404.html';">
+              <i class="fa-solid fa-plus me-1"></i> New Savings Goal
+            </button>
+          </div>
+
+          <!-- Goal KPI Statistics -->
+          <div class="metric-cards-grid mb-4">
+            <div class="metric-stat-card">
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="text-muted small">Active Savings Pools</span>
+                <div class="metric-icon-wrap"><i class="fa-solid fa-bullseye"></i></div>
+              </div>
+              <div class="metric-val">3 Goals</div>
+              <span class="badge badge-primary">Dedicated Targets</span>
+            </div>
+
+            <div class="metric-stat-card">
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="text-muted small">Total Capital Target</span>
+                <div class="metric-icon-wrap"><i class="fa-solid fa-flag-checkered"></i></div>
+              </div>
+              <div class="metric-val">$75,000.00</div>
+              <span class="badge badge-primary">Planned Horizon</span>
+            </div>
+
+            <div class="metric-stat-card">
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="text-muted small">Capital Accumulated</span>
+                <div class="metric-icon-wrap"><i class="fa-solid fa-piggy-bank"></i></div>
+              </div>
+              <div class="metric-val text-accent">$48,200.00</div>
+              <span class="badge badge-accent">64.3% Funded</span>
+            </div>
+
+            <div class="metric-stat-card">
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="text-muted small">Monthly Velocity</span>
+                <div class="metric-icon-wrap"><i class="fa-solid fa-chart-line"></i></div>
+              </div>
+              <div class="metric-val">+$1,500.00 / mo</div>
+              <span class="badge badge-primary">On Schedule</span>
+            </div>
+          </div>
+
+          <!-- Interactive Goal Contribution Pacer Card -->
+          <div class="card-premium mb-4">
+            <div class="d-flex justify-content-between align-items-center mb-3 pb-2 border-bottom border-light">
+              <h4 class="text-primary m-0"><i class="fa-solid fa-calculator text-accent me-2"></i> Monthly Contribution Modeler</h4>
+              <span class="badge badge-accent">Interactive Calculator</span>
+            </div>
+            <p class="text-muted small mb-3">Model how increasing your monthly transfer accelerates milestone completion:</p>
+            <div class="row d-flex flex-wrap gap-3 align-items-center">
+              <div class="col-flex-1">
+                <label class="form-label small text-muted">Select Target Pool</label>
+                <select class="form-control" id="modelGoalSelect">
+                  <option value="20000">Emergency Fund Pool ($20,000)</option>
+                  <option value="15000">Vacation &amp; Travel ($15,000)</option>
+                  <option value="40000">Home Down Payment ($40,000)</option>
+                </select>
+              </div>
+              <div class="col-flex-1">
+                <label class="form-label small text-muted">Proposed Monthly Deposit ($)</label>
+                <input type="number" class="form-control" id="modelGoalMonthly" value="500" min="50" step="50">
+              </div>
+              <div class="col-flex-1" style="background: var(--primary-tint); padding: 14px; border-radius: var(--radius-md); text-align: center;">
+                <span class="text-muted small d-block">Estimated Completion</span>
+                <span class="fw-bold text-primary" id="modelGoalEta" style="font-size: 1.3rem;">6.4 Months</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dynamic Goal Cards Grid -->
+          <div class="mb-4">
+            <h4 class="text-primary mb-3">Active Goal Progress Cards</h4>
+            <div id="userGoalsContainer" class="row d-flex flex-wrap" style="margin: -10px;">
+              <!-- Populated via script.js -->
+            </div>
+          </div>
+
+          <!-- Goal Roadmap Milestones Table -->
+          <div class="card-premium p-0">
+            <div class="p-3 border-bottom border-light d-flex justify-content-between align-items-center">
+              <h4 class="text-primary m-0">Goal Milestones &amp; Funding Blueprint</h4>
+              <span class="badge badge-subtle">Portfolio Pacing</span>
+            </div>
+            <div class="table-responsive">
+              <table class="dash-table">
+                <thead>
+                  <tr>
+                    <th>Goal Objective</th>
+                    <th>Target Amount</th>
+                    <th>Saved to Date</th>
+                    <th>Remaining Needed</th>
+                    <th>Pacing</th>
+                    <th>Target Date</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>6-Month Emergency Cushion</strong></td>
+                    <td>$20,000.00</td>
+                    <td>$16,800.00</td>
+                    <td class="text-primary fw-bold">$3,200.00</td>
+                    <td><span class="badge badge-primary">84% Complete</span></td>
+                    <td>Dec 2026</td>
+                  </tr>
+                  <tr>
+                    <td><strong>International Travel Fund</strong></td>
+                    <td>$15,000.00</td>
+                    <td>$9,400.00</td>
+                    <td class="text-primary fw-bold">$5,600.00</td>
+                    <td><span class="badge badge-accent">62.6% Complete</span></td>
+                    <td>Jul 2027</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Home Down Payment Equity</strong></td>
+                    <td>$40,000.00</td>
+                    <td>$22,000.00</td>
+                    <td class="text-primary fw-bold">$18,000.00</td>
+                    <td><span class="badge badge-primary">55% Complete</span></td>
+                    <td>Oct 2028</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- =====================================================
+             VIEW 5: FINANCIAL REPORTS
+             ===================================================== -->
+        <section id="view-reports" class="dash-view-section">
+          <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
+            <div>
+              <h2 class="text-primary m-0">Financial Reports &amp; Analytics</h2>
+              <span class="text-muted small">Longitudinal wealth expansion metrics, audit records, and exportable statements.</span>
+            </div>
+            <div class="d-flex gap-2 flex-wrap">
+              <button type="button" class="btn btn-primary btn-sm" id="downloadUserReportBtn" onclick="window.location.href='404.html';">
+                <i class="fa-solid fa-download me-1"></i> Download CSV Summary
+              </button>
+            </div>
+          </div>
+
+          <!-- Financial Health KPI Cards -->
+          <div class="metric-cards-grid mb-4">
+            <div class="metric-stat-card">
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="text-muted small">Net Worth Growth</span>
+                <div class="metric-icon-wrap"><i class="fa-solid fa-arrow-trend-up"></i></div>
+              </div>
+              <div class="metric-val text-primary">+18.4%</div>
+              <span class="badge badge-primary">Trailing 10 Months</span>
+            </div>
+
+            <div class="metric-stat-card">
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="text-muted small">Savings Efficiency Ratio</span>
+                <div class="metric-icon-wrap"><i class="fa-solid fa-percent"></i></div>
+              </div>
+              <div class="metric-val">34.2%</div>
+              <span class="badge badge-accent">Income Preserved</span>
+            </div>
+
+            <div class="metric-stat-card">
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="text-muted small">Debt-to-Income Exposure</span>
+                <div class="metric-icon-wrap"><i class="fa-solid fa-scale-balanced"></i></div>
+              </div>
+              <div class="metric-val">12.8%</div>
+              <span class="badge badge-primary">Conservative Tier</span>
+            </div>
+
+            <div class="metric-stat-card">
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="text-muted small">Financial Health Index</span>
+                <div class="metric-icon-wrap"><i class="fa-solid fa-award"></i></div>
+              </div>
+              <div class="metric-val">92 / 100</div>
+              <span class="badge badge-accent">Optimal Standing</span>
+            </div>
+          </div>
+
+          <!-- Line Chart Card -->
+          <div class="card-premium mb-4">
+            <div class="d-flex justify-content-between align-items-center mb-3 pb-2 border-bottom border-light">
+              <h4 class="text-primary m-0">Portfolio Net Worth Trajectory (Demo 2026)</h4>
+              <span class="badge badge-primary">10-Month Performance</span>
+            </div>
+            <div class="chart-canvas-container">
+              <canvas id="userReportLineCanvas" data-height="270"></canvas>
+            </div>
+            <span class="text-muted small mt-2 d-block text-center">Cumulative liquid capital balance tracked monthly from $8,200 (Jan) to $27,800 (Oct).</span>
+          </div>
+
+          <!-- Historical Monthly Financial Audit Table -->
+          <div class="card-premium p-0 mb-4">
+            <div class="p-3 border-bottom border-light d-flex justify-content-between align-items-center">
+              <h4 class="text-primary m-0">Historical Monthly Performance Ledger</h4>
+              <span class="badge badge-subtle">Trailing 6 Months</span>
+            </div>
+            <div class="table-responsive">
+              <table class="dash-table">
+                <thead>
+                  <tr>
+                    <th>Reporting Month</th>
+                    <th>Gross Inflow</th>
+                    <th>Total Outflow</th>
+                    <th>Net Saved</th>
+                    <th>Savings Rate</th>
+                    <th>Financial Delta</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>October 2026 (Active)</strong></td>
+                    <td>$9,650.00</td>
+                    <td>$4,120.00</td>
+                    <td class="text-primary fw-bold">+$5,530.00</td>
+                    <td>36.2%</td>
+                    <td><span class="badge badge-primary">+4.2% Growth</span></td>
+                  </tr>
+                  <tr>
+                    <td>September 2026</td>
+                    <td>$9,400.00</td>
+                    <td>$4,250.00</td>
+                    <td class="text-primary fw-bold">+$5,150.00</td>
+                    <td>35.4%</td>
+                    <td><span class="badge badge-primary">+3.8% Growth</span></td>
+                  </tr>
+                  <tr>
+                    <td>August 2026</td>
+                    <td>$9,200.00</td>
+                    <td>$4,400.00</td>
+                    <td class="text-primary fw-bold">+$4,800.00</td>
+                    <td>33.1%</td>
+                    <td><span class="badge badge-primary">+3.5% Growth</span></td>
+                  </tr>
+                  <tr>
+                    <td>July 2026</td>
+                    <td>$8,900.00</td>
+                    <td>$4,350.00</td>
+                    <td class="text-primary fw-bold">+$4,550.00</td>
+                    <td>32.0%</td>
+                    <td><span class="badge badge-primary">+3.1% Growth</span></td>
+                  </tr>
+                  <tr>
+                    <td>June 2026</td>
+                    <td>$8,800.00</td>
+                    <td>$4,500.00</td>
+                    <td class="text-primary fw-bold">+$4,300.00</td>
+                    <td>31.5%</td>
+                    <td><span class="badge badge-accent">+2.9% Growth</span></td>
+                  </tr>
+                  <tr>
+                    <td>May 2026</td>
+                    <td>$8,600.00</td>
+                    <td>$4,600.00</td>
+                    <td class="text-primary fw-bold">+$4,000.00</td>
+                    <td>30.2%</td>
+                    <td><span class="badge badge-accent">+2.6% Growth</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Analytical Insights Cards -->
+          <div class="row d-flex flex-wrap gap-3">
+            <div class="card-premium col-flex-1">
+              <h5 class="text-primary mb-2"><i class="fa-solid fa-chart-pie text-accent me-1"></i> Category Variance Audit</h5>
+              <p class="text-muted small m-0">
+                Your spending in essential utilities stayed 14% beneath planned thresholds. Discretionary recreation remained within the 10% tolerance boundary.
+              </p>
+            </div>
+            <div class="card-premium col-flex-1">
+              <h5 class="text-primary mb-2"><i class="fa-solid fa-shield text-accent me-1"></i> Liquid Cushion Health</h5>
+              <p class="text-muted small m-0">
+                Current emergency capital represents 5.8 months of essential obligations. Recommended trajectory is to reach 6.0 full months by end of quarter.
+              </p>
+            </div>
+            <div class="card-premium col-flex-1">
+              <h5 class="text-primary mb-2"><i class="fa-solid fa-piggy-bank text-accent me-1"></i> Compounding Efficiency</h5>
+              <p class="text-muted small m-0">
+                Automated monthly savings transfers of $1,500 are generating a projected $18,000 annualized base expansion at current velocity.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- =====================================================
+             VIEW 6: PROFILE & SETTINGS
+             ===================================================== -->
+        <section id="view-settings" class="dash-view-section">
+          <div class="mb-4">
+            <h2 class="text-primary m-0">Profile &amp; Settings</h2>
+            <span class="text-muted small">Manage local session parameters, notification preferences, security options, and platform styling.</span>
+          </div>
+
+          <div class="row d-flex flex-wrap gap-4">
+            <!-- Personal Details Form -->
+            <div class="card-premium col-flex-1-2">
+              <form id="userSettingsForm">
+                <h4 class="text-primary mb-3"><i class="fa-solid fa-user-gear text-accent me-2"></i> Personal Information</h4>
+                <div class="form-group">
+                  <label for="dashSettingsName" class="form-label">Full Name</label>
+                  <input type="text" id="dashSettingsName" class="form-control" value="Alex Morgan">
+                </div>
+
+                <div class="form-group">
+                  <label for="dashSettingsEmail" class="form-label">Email Address</label>
+                  <input type="email" id="dashSettingsEmail" class="form-control" value="alex.morgan@finvantage.local">
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Default Base Currency</label>
+                  <select class="form-control">
+                    <option selected>USD ($) — United States Dollar</option>
+                    <option>EUR (€) — Euro</option>
+                    <option>GBP (£) — British Pound</option>
+                    <option>INR (₹) — Indian Rupee</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Financial Calendar Timezone</label>
+                  <select class="form-control">
+                    <option selected>GMT-05:00 Eastern Time (US &amp; Canada)</option>
+                    <option>GMT+05:30 Chennai, Kolkata, Mumbai, New Delhi</option>
+                    <option>GMT+00:00 London, Edinburgh, Dublin</option>
+                  </select>
+                </div>
+
+                <button type="submit" class="btn btn-primary mt-2">
+                  <i class="fa-solid fa-floppy-disk me-1"></i> Save Preferences
+                </button>
+              </form>
+            </div>
+
+            <!-- Preferences & Security Parameters -->
+            <div class="card-premium col-flex-1">
+              <h4 class="text-primary mb-3"><i class="fa-solid fa-bell text-accent me-2"></i> Notification Preferences</h4>
+              <div class="mb-3">
+                <label class="d-flex align-items-center gap-2 small text-muted">
+                  <input type="checkbox" checked>
+                  <span>Alert me when an envelope surpasses 85% of planned budget</span>
+                </label>
+              </div>
+              <div class="mb-3">
+                <label class="d-flex align-items-center gap-2 small text-muted">
+                  <input type="checkbox" checked>
+                  <span>Weekly cashflow summary notification in browser</span>
+                </label>
+              </div>
+              <div class="mb-4">
+                <label class="d-flex align-items-center gap-2 small text-muted">
+                  <input type="checkbox" checked>
+                  <span>Savings milestone achievement celebrations</span>
+                </label>
+              </div>
+
+              <h4 class="text-primary mb-3 pt-3 border-top border-light"><i class="fa-solid fa-shield-halved text-accent me-2"></i> Security &amp; Session</h4>
+              <div class="mb-3">
+                <label class="d-flex align-items-center gap-2 small text-muted">
+                  <input type="checkbox" checked>
+                  <span>Require confirmation before clearing demo transactions</span>
+                </label>
+              </div>
+              <div class="p-3 bg-light rounded text-muted small mb-3 border border-light">
+                <div class="mb-1"><i class="fa-solid fa-laptop text-primary me-1"></i> <strong>Active Device:</strong> Desktop Browser (Client Session)</div>
+                <div><i class="fa-solid fa-database text-accent me-1"></i> <strong>Storage Scope:</strong> Local Browser Session Only</div>
+              </div>
+
+              <button type="button" class="btn btn-outline-primary btn-sm w-100" onclick="window.location.href='404.html';">
+                <i class="fa-solid fa-rotate-right me-1"></i> Reset Local Session Data
+              </button>
+            </div>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- ADD BUDGET MODAL -->
+  <div id="addBudgetModal" class="modal-container" role="dialog" aria-modal="true" aria-labelledby="addBudgetTitle">
+    <div class="modal-overlay" data-close-modal></div>
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h4 id="addBudgetTitle" class="m-0 text-primary">Add Budget Category</h4>
+        <button type="button" class="modal-close-btn" data-close-modal aria-label="Close modal">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <form id="addBudgetForm">
+        <div class="form-group">
+          <label for="budgetCatInput" class="form-label">Category Name *</label>
+          <input type="text" id="budgetCatInput" class="form-control" placeholder="e.g. Travel &amp; Vacation" required>
+        </div>
+        <div class="form-group">
+          <label for="budgetPlannedInput" class="form-label">Planned Limit ($) *</label>
+          <input type="number" id="budgetPlannedInput" class="form-control" placeholder="e.g. 500" min="1" step="any" required>
+        </div>
+        <div class="form-group">
+          <label for="budgetSpentInput" class="form-label">Initial Spent Amount ($)</label>
+          <input type="number" id="budgetSpentInput" class="form-control" placeholder="e.g. 120" min="0" step="any">
+        </div>
+        <div class="text-end pt-3 border-top border-light">
+          <button type="button" class="btn btn-outline-primary btn-sm me-2" data-close-modal>Cancel</button>
+          <button type="submit" class="btn btn-primary btn-sm">Add Category</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ADD TRANSACTION MODAL -->
+  <div id="addTxnModal" class="modal-container" role="dialog" aria-modal="true" aria-labelledby="addTxnTitle">
+    <div class="modal-overlay" data-close-modal></div>
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h4 id="addTxnTitle" class="m-0 text-primary">Log New Transaction</h4>
+        <button type="button" class="modal-close-btn" data-close-modal aria-label="Close modal">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <form id="addTxnForm">
+        <div class="form-group">
+          <label for="txnTitleInput" class="form-label">Description *</label>
+          <input type="text" id="txnTitleInput" class="form-control" placeholder="e.g. Weekly Grocery Run" required>
+        </div>
+        <div class="form-group">
+          <label for="txnAmountInput" class="form-label">Amount ($) *</label>
+          <input type="number" id="txnAmountInput" class="form-control" placeholder="e.g. 85.50" min="0.01" step="any" required>
+        </div>
+        <div class="form-group">
+          <label for="txnCategoryInput" class="form-label">Category *</label>
+          <select id="txnCategoryInput" class="form-control" required>
+            <option value="Groceries">Groceries</option>
+            <option value="Housing">Housing</option>
+            <option value="Utilities">Utilities</option>
+            <option value="Transport">Transport</option>
+            <option value="Income">Income</option>
+            <option value="Savings">Savings</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="txnTypeInput" class="form-label">Transaction Type *</label>
+          <select id="txnTypeInput" class="form-control" required>
+            <option value="expense">Expense (Debit)</option>
+            <option value="income">Income (Credit)</option>
+          </select>
+        </div>
+        <div class="text-end pt-3 border-top border-light">
+          <button type="button" class="btn btn-outline-primary btn-sm me-2" data-close-modal>Cancel</button>
+          <button type="submit" class="btn btn-primary btn-sm">Record Transaction</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ADD SAVINGS GOAL MODAL -->
+  <div id="addGoalModal" class="modal-container" role="dialog" aria-modal="true" aria-labelledby="addGoalTitle">
+    <div class="modal-overlay" data-close-modal></div>
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h4 id="addGoalTitle" class="m-0 text-primary">Create Savings Goal</h4>
+        <button type="button" class="modal-close-btn" data-close-modal aria-label="Close modal">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <form id="addGoalForm">
+        <div class="form-group">
+          <label for="goalNameInput" class="form-label">Goal Name *</label>
+          <input type="text" id="goalNameInput" class="form-control" placeholder="e.g. Vehicle Replacement Fund" required>
+        </div>
+        <div class="form-group">
+          <label for="goalTargetInput" class="form-label">Target Amount ($) *</label>
+          <input type="number" id="goalTargetInput" class="form-control" placeholder="e.g. 15000" min="10" step="any" required>
+        </div>
+        <div class="form-group">
+          <label for="goalCurrentInput" class="form-label">Current Saved Amount ($)</label>
+          <input type="number" id="goalCurrentInput" class="form-control" placeholder="e.g. 2500" min="0" step="any">
+        </div>
+        <div class="form-group">
+          <label for="goalDateInput" class="form-label">Target Date</label>
+          <input type="date" id="goalDateInput" class="form-control" value="2027-12-31">
+        </div>
+        <div class="text-end pt-3 border-top border-light">
+          <button type="button" class="btn btn-outline-primary btn-sm me-2" data-close-modal>Cancel</button>
+          <button type="submit" class="btn btn-primary btn-sm">Save Goal</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="globalToast" class="global-toast"></div>
+  <script src="js/script.js"></script>
+</body>
+</html>

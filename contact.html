@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us — FinVantage Personal Finance Platform</title>
+  <meta name="description" content="Get in touch with FinVantage. Reach out for platform guidance, support categories, or financial education inquiries.">
+  <link rel="icon" type="image/webp" href="assets/icons/favicon.webp">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/contact.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="site-navbar">
+    <div class="container navbar-container">
+      <a href="index.html" class="navbar-brand" aria-label="Stackly Home">
+        <img src="assets/Brand-logo.webp" alt="Stackly Brand Logo">
+      </a>
+
+      <nav class="navbar-menu" aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="service.html">Services</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+
+        <div class="navbar-actions">
+          <a href="login.html" class="btn btn-outline-primary btn-sm">Log In</a>
+        </div>
+      </nav>
+
+      <button type="button" class="navbar-toggle" aria-label="Toggle navigation drawer" aria-expanded="false">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- SECTION 1: HERO -->
+    <section class="contact-hero">
+      <div class="container reveal-fade-up">
+        <span class="section-tag">Direct Communication</span>
+        <h1>Let's Talk About Your <span>Financial Goals</span></h1>
+        <p class="contact-hero-subtitle">
+          Have questions regarding budget setups, client simulations, or financial tracking tools? Our concierge support is here to guide your money journey.
+        </p>
+        <div class="hero-actions">
+          <a href="404.html" class="btn btn-accent">
+            <span>Send Us a Message</span>
+            <i class="fa-solid fa-paper-plane"></i>
+          </a>
+          <a href="404.html" class="btn btn-outline-white">
+            <span>View Office Map</span>
+            <i class="fa-solid fa-map-location-dot"></i>
+          </a>
+        </div>
+        <div class="hero-contact-chips-grid">
+          <div class="hero-contact-chip">
+            <i class="fa-solid fa-envelope"></i>
+            <div>
+              <strong>info@stackly.com</strong>
+              <span>Direct inquiry mailbox</span>
+            </div>
+          </div>
+          <div class="hero-contact-chip">
+            <i class="fa-solid fa-phone"></i>
+            <div>
+              <strong>1800789456</strong>
+              <span>Toll-free customer line</span>
+            </div>
+          </div>
+          <div class="hero-contact-chip">
+            <i class="fa-solid fa-location-dot"></i>
+            <div>
+              <strong>Salem, Tamil Nadu</strong>
+              <span>MMR Complex, Chinna Thirupathi</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: CONTACT INFORMATION CARDS -->
+    <section class="section-padding" style="padding-bottom: 20px;">
+      <div class="container">
+        <div class="contact-info-grid">
+          <!-- Card 1: Direct Support -->
+          <div class="card-premium info-card reveal-fade-up">
+            <div class="info-icon-box">
+              <i class="fa-solid fa-headset"></i>
+            </div>
+            <h4>Support Inquiries</h4>
+            <p>Direct assistance with platform setup.</p>
+            <p class="fw-bold text-primary"><a href="mailto:info@stackly.com" class="text-primary text-decoration-none">info@stackly.com</a></p>
+            <span class="text-muted small">Monday – Friday, 9:00 AM – 6:00 PM IST</span>
+          </div>
+
+          <!-- Card 2: Concierge Desk -->
+          <div class="card-premium info-card reveal-fade-up">
+            <div class="info-icon-box">
+              <i class="fa-solid fa-phone-volume"></i>
+            </div>
+            <h4>Telephone Support</h4>
+            <p>Customer care &amp; assistance hotline.</p>
+            <p class="fw-bold text-primary"><a href="tel:1800789456" class="text-primary text-decoration-none">1800789456</a></p>
+            <span class="text-muted small">Toll-free direct line</span>
+          </div>
+
+          <!-- Card 3: Central Office -->
+          <div class="card-premium info-card reveal-fade-up">
+            <div class="info-icon-box">
+              <i class="fa-solid fa-location-dot"></i>
+            </div>
+            <h4>Stackly Headquarters</h4>
+            <p>MMR Complex, Chinna Thirupathi</p>
+            <p class="fw-bold text-primary" style="font-size: 0.95rem;">near Chinna Muniyappan Kovil</p>
+            <span class="text-muted small">Salem, Tamil Nadu 636008</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTIONS 3 & 4: CONTACT FORM & SUPPORT CATEGORIES -->
+    <section class="section-padding" style="background: rgba(31, 60, 136, 0.03);">
+      <div class="container">
+        <div class="contact-main-grid">
+          <!-- SECTION 3: CONTACT FORM -->
+          <div class="card-premium reveal-fade-up">
+            <span class="section-tag">Send a Note</span>
+            <h2 class="mb-3">Submit an Inquiry</h2>
+            <p class="text-muted mb-4">
+              Complete the verified form below. Client-side validation ensures fields are filled correctly before demonstration logging.
+            </p>
+
+            <div id="contactStatusBox"></div>
+
+            <form id="contactForm" novalidate>
+              <div class="form-group">
+                <label for="contactName" class="form-label">Full Name *</label>
+                <input type="text" id="contactName" class="form-control" placeholder="e.g. Eleanor Vance" required>
+              </div>
+
+              <div class="form-group">
+                <label for="contactEmail" class="form-label">Email Address *</label>
+                <input type="email" id="contactEmail" class="form-control" placeholder="e.g. eleanor@example.com" required>
+              </div>
+
+              <div class="form-group">
+                <label for="contactSubject" class="form-label">Inquiry Subject *</label>
+                <select id="contactSubject" class="form-control" required>
+                  <option value="">Select an inquiry topic...</option>
+                  <option value="Budget Planning Support">Budget Planning Support</option>
+                  <option value="Savings Goals Assistance">Savings Goals Assistance</option>
+                  <option value="Client Advisory Simulation">Client Advisory Simulation</option>
+                  <option value="General Feedback">General Feedback</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="contactMessage" class="form-label">Message *</label>
+                <textarea id="contactMessage" class="form-control" placeholder="Please describe your question or financial topic (minimum 10 characters)..." required></textarea>
+              </div>
+
+              <div class="educational-badge mb-3">
+                <i class="fa-solid fa-circle-info"></i>
+                <span>Notice: FinVantage operates purely client-side without backend databases. Form submissions are strictly simulated.</span>
+              </div>
+
+              <button type="submit" class="btn btn-primary w-100">
+                <span>Send Message</span>
+                <i class="fa-solid fa-paper-plane"></i>
+              </button>
+            </form>
+          </div>
+
+          <!-- SECTION 4: SUPPORT CATEGORIES -->
+          <div class="reveal-fade-up">
+            <span class="section-tag">Dedicated Focus Areas</span>
+            <h3 class="mb-3">Support Categories</h3>
+            <p class="text-muted mb-4">
+              Explore specialized support tracks tailored to your particular platform questions:
+            </p>
+
+            <div class="support-category-card">
+              <h5><i class="fa-solid fa-sliders text-accent me-2"></i> Budget &amp; Cashflow Assistance</h5>
+              <p>Guidance on categorizing discretionary versus essential expenditures and setting variance limits.</p>
+            </div>
+
+            <div class="support-category-card">
+              <h5><i class="fa-solid fa-bullseye text-accent me-2"></i> Savings Goal Configuration</h5>
+              <p>Assistance with target timeline formulas and monthly required deposit simulations.</p>
+            </div>
+
+            <div class="support-category-card">
+              <h5><i class="fa-solid fa-file-csv text-accent me-2"></i> Report Generation &amp; Export</h5>
+              <p>Help with generating local CSV ledgers and interpreting cashflow delta columns.</p>
+            </div>
+
+            <div class="support-category-card">
+              <h5><i class="fa-solid fa-briefcase text-accent me-2"></i> Client Advisory Portfolios</h5>
+              <p>Questions regarding the shared client dashboard and long-term emergency reserves.</p>
+            </div>
+
+            <div class="mt-4 p-3 border border-light rounded bg-white">
+              <h5 class="text-primary mb-2"><i class="fa-solid fa-clock text-accent me-2"></i> Response Standards</h5>
+              <p class="text-muted small m-0">
+                During live advisory operational windows, inquiries are typically addressed within 4 to 8 business hours.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: OUR LOCATION & INTERACTIVE GOOGLE MAP -->
+    <section id="office-location" class="section-padding map-section" style="background: rgba(31, 60, 136, 0.02); padding-top: 20px;">
+      <div class="container">
+        <div class="text-center">
+          <span class="section-tag">Visit Our Office</span>
+          <h2>Our Office <span>Location</span></h2>
+          <p class="section-desc">
+            Visit our physical headquarters or connect directly with our support team. Conveniently located near Chinna Muniyappan Kovil in Salem.
+          </p>
+        </div>
+
+        <div class="map-wrapper reveal-fade-up">
+          <div class="map-card-info">
+            <div>
+              <div class="map-info-header">
+                <div class="map-info-badge">
+                  <i class="fa-solid fa-building"></i>
+                </div>
+                <div>
+                  <h4>Stackly Headquarters</h4>
+                  <span class="text-muted small">Corporate Finance Office</span>
+                </div>
+              </div>
+              
+              <div class="map-info-details">
+                <div class="map-detail-item">
+                  <i class="fa-solid fa-location-dot"></i>
+                  <div>
+                    <strong>Address</strong>
+                    <p>MMR Complex, Chinna Thirupathi, near Chinna Muniyappan Kovil, Salem, Tamil Nadu 636008</p>
+                  </div>
+                </div>
+                <div class="map-detail-item">
+                  <i class="fa-solid fa-envelope"></i>
+                  <div>
+                    <strong>Official Email</strong>
+                    <p><a href="mailto:info@stackly.com">info@stackly.com</a></p>
+                  </div>
+                </div>
+                <div class="map-detail-item">
+                  <i class="fa-solid fa-phone"></i>
+                  <div>
+                    <strong>Phone Support</strong>
+                    <p><a href="tel:1800789456">1800789456</a> (Toll-Free)</p>
+                  </div>
+                </div>
+                <div class="map-detail-item">
+                  <i class="fa-solid fa-business-time"></i>
+                  <div>
+                    <strong>Working Hours</strong>
+                    <p>Mon – Fri: 9:00 AM – 6:00 PM IST</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="map-info-actions">
+              <a href="https://www.google.com/maps/place/Stackly/@11.6829566,78.1739798,17z/data=!3m1!4b1!4m6!3m5!1s0x3babefef7fd970bb:0xe11aef1a71994f9!8m2!3d11.6829566!4d78.1739798!16s%2Fg%2F11l660s35r?entry=ttu&amp;g_ep=EgoyMDI2MDcwNy4wIKXMDSoASAFQAw%3D%3D" 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="btn btn-accent btn-sm w-100">
+                <span>Open in Google Maps</span>
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="map-iframe-container">
+            <iframe 
+              src="https://maps.google.com/maps?q=11.6829566,78.1739798&amp;hl=en&amp;z=17&amp;output=embed" 
+              width="100%" 
+              height="100%" 
+              style="border:0; min-height: 440px;" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade" 
+              title="Stackly Salem Office Google Map">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: FINANCIAL LEARNING RESOURCES -->
+    <section class="section-padding">
+      <div class="container">
+        <div class="text-center">
+          <span class="section-tag">Self-Service Education</span>
+          <h2>Financial Learning Resources</h2>
+          <p class="section-desc">
+            Explore comprehensive guides and toolkits to expand your financial independence at your own pace.
+          </p>
+        </div>
+
+        <div class="resources-grid">
+          <div class="card-premium resource-card reveal-fade-up">
+            <i class="fa-solid fa-book-open"></i>
+            <div>
+              <h5 class="text-primary">Personal Budget Blueprint</h5>
+              <p>A step-by-step PDF-ready educational framework detailing the 50/30/20 allocation method.</p>
+            </div>
+          </div>
+
+          <div class="card-premium resource-card reveal-fade-up">
+            <i class="fa-solid fa-calculator"></i>
+            <div>
+              <h5 class="text-primary">Emergency Cushion Calculator</h5>
+              <p>Interactive guidelines to accurately calculate 6 months of true living expenses.</p>
+            </div>
+          </div>
+
+          <div class="card-premium resource-card reveal-fade-up">
+            <i class="fa-solid fa-arrow-trend-up"></i>
+            <div>
+              <h5 class="text-primary">Debt Amortization Handbook</h5>
+              <p>A comparative handbook contrasting the behavioral Snowball and mathematical Avalanche systems.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: FREQUENTLY ASKED QUESTIONS -->
+    <section id="contact-faq" class="section-padding" style="background: rgba(31, 60, 136, 0.03);">
+      <div class="container">
+        <div class="text-center">
+          <span class="section-tag">Quick Answers</span>
+          <h2>Contact &amp; Support FAQs</h2>
+          <p class="section-desc">
+            Helpful answers to common questions about communication and support channels.
+          </p>
+        </div>
+
+        <div class="faq-accordion">
+          <div class="faq-item active">
+            <button type="button" class="faq-question" aria-expanded="true">
+              <span>Where do submitted contact inquiries go?</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Because FinVantage is constructed strictly as a static frontend client application, inquiries are verified locally in your browser. No message is transmitted to external servers or logged in remote relational databases.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-question" aria-expanded="false">
+              <span>Can I request new dashboard features or report formats?</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Yes. We welcome feedback regarding customized budget envelopes, chart rendering preferences, and local data export formats.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-question" aria-expanded="false">
+              <span>Is personalized financial advisory advice provided here?</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>
+                No. FinVantage provides software tools and educational material for personal organization only. We do not provide individualized certified investment advice or broker-dealer transactions.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 7 & 8: NEWSLETTER & FINAL CTA -->
+    <section class="section-padding">
+      <div class="container">
+        <div class="contact-cta-box reveal-fade-up">
+          <span class="section-tag" style="background: rgba(255, 255, 255, 0.15); color: #FFFFFF; border-color: rgba(255, 255, 255, 0.3);">
+            Ready to Begin?
+          </span>
+          <h2>Take Charge of Your Wealth Today</h2>
+          <p>
+            Join thousands of individuals using our client-side platform to organize budgets, manage expenses, and build resilient savings.
+          </p>
+          <div class="d-flex justify-content-center gap-3 flex-wrap">
+            <a href="404.html" class="btn btn-accent">
+              <span>Create Free Account</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+            <a href="404.html" class="btn btn-outline-white">
+              <span>Explore Services</span>
+              <i class="fa-solid fa-compass"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="index.html" class="navbar-brand mb-3" aria-label="Stackly Home">
+            <img src="assets/Brand-logo.webp" alt="Stackly Logo" style="filter: brightness(0) invert(1);">
+          </a>
+          <p>
+            A modern, client-side personal finance platform dedicated to building sustainable money habits, transparent budgets, and lasting savings resilience.
+          </p>
+          <div class="footer-social-links">
+            <a href="404.html" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="404.html" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="404.html" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="404.html" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="service.html">Services</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Our Services</h4>
+          <ul class="footer-links">
+            <li><a href="404.html">Budget Planning</a></li>
+            <li><a href="404.html">Expense Tracking</a></li>
+            <li><a href="404.html">Income Management</a></li>
+            <li><a href="404.html">Savings Goals</a></li>
+            <li><a href="404.html">Debt Management</a></li>
+            <li><a href="404.html">Financial Reports</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Contact Info -->
+        <div class="footer-col">
+          <h4>Contact Us</h4>
+          <div class="footer-contact-info text-white-muted small">
+            <div class="footer-contact-item mb-2">
+              <i class="fa-solid fa-location-dot text-accent me-2 mt-1"></i>
+              <span>MMR Complex, Chinna Thirupathi, near Chinna Muniyappan Kovil, Salem, Tamil Nadu 636008</span>
+            </div>
+            <div class="footer-contact-item mb-2">
+              <i class="fa-solid fa-envelope text-accent me-2"></i>
+              <a href="mailto:info@stackly.com" class="text-white text-decoration-none">info@stackly.com</a>
+            </div>
+            <div class="footer-contact-item">
+              <i class="fa-solid fa-phone text-accent me-2"></i>
+              <a href="tel:1800789456" class="text-white text-decoration-none">1800789456</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Col 5: Location Map -->
+        <div class="footer-col footer-col-map">
+          <h4>Location Map</h4>
+          <div class="footer-map-container">
+            <iframe 
+              src="https://maps.google.com/maps?q=11.6829566,78.1739798&amp;hl=en&amp;z=17&amp;output=embed" 
+              width="100%" 
+              height="140" 
+              style="border:0; border-radius: 8px;" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade" 
+              title="Stackly Salem Office Google Map">
+            </iframe>
+            <a href="https://www.google.com/maps/place/Stackly/@11.6829566,78.1739798,17z/data=!3m1!4b1!4m6!3m5!1s0x3babefef7fd970bb:0xe11aef1a71994f9!8m2!3d11.6829566!4d78.1739798!16s%2Fg%2F11l660s35r?entry=ttu&amp;g_ep=EgoyMDI2MDcwNy4wIKXMDSoASAFQAw%3D%3D" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="footer-map-link">
+              <i class="fa-solid fa-map-location-dot me-1 text-accent"></i>
+              <span>Open in Google Maps</span>
+              <i class="fa-solid fa-arrow-up-right-from-square ms-1"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 Stackly Platform. All rights reserved. Strictly demo financial simulation.
+        </div>
+        <div>
+          <a href="404.html" class="text-white-muted me-3">Privacy Terms</a>
+          <a href="404.html" class="text-white-muted">Terms of Use</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div id="globalToast" class="global-toast"></div>
+  <script src="js/script.js"></script>
+</body>
+</html>

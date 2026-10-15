@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Your Account — FinVantage</title>
+  <meta name="description" content="Register for FinVantage personal finance platform. Client-side simulation of modern financial budgeting and tracking.">
+  <link rel="icon" type="image/webp" href="assets/icons/favicon.webp">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/signup.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+
+  <div class="auth-container">
+    <a href="index.html" class="back-home-link" aria-label="Back to Homepage">
+      <i class="fa-solid fa-arrow-left"></i>
+      <span>Back to Home</span>
+    </a>
+
+    <div class="auth-card">
+      <div class="auth-card-header">
+        <img src="assets/Brand-logo.webp" alt="Stackly Logo" class="auth-brand-logo">
+        <h1>Create Your Account</h1>
+        <p>Start organizing your budgets and savings with client-side simplicity.</p>
+      </div>
+
+      <div id="signupStatusBox"></div>
+
+      <form id="signupForm" autocomplete="off" novalidate>
+        <!-- Full Name -->
+        <div class="form-group">
+          <label for="signupName" class="form-label">Full Name *</label>
+          <input type="text" id="signupName" class="form-control" placeholder="Enter your full name" required autocomplete="off">
+        </div>
+
+        <!-- Email Address -->
+        <div class="form-group">
+          <label for="signupEmail" class="form-label">Email Address *</label>
+          <input type="email" id="signupEmail" class="form-control" placeholder="Enter your email address" required autocomplete="off">
+        </div>
+
+        <!-- Password -->
+        <div class="form-group">
+          <label for="signupPassword" class="form-label">Password (min. 8 characters) *</label>
+          <div class="input-password-wrap">
+            <input type="password" id="signupPassword" class="form-control" placeholder="Create a password (min. 8 characters)" required autocomplete="new-password">
+            <button type="button" class="password-toggle-btn" data-target="signupPassword" aria-label="Toggle password visibility">
+              <i class="fa-regular fa-eye"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Confirm Password -->
+        <div class="form-group">
+          <label for="signupConfirmPassword" class="form-label">Confirm Password *</label>
+          <div class="input-password-wrap">
+            <input type="password" id="signupConfirmPassword" class="form-control" placeholder="Confirm your password" required autocomplete="new-password">
+            <button type="button" class="password-toggle-btn" data-target="signupConfirmPassword" aria-label="Toggle password visibility">
+              <i class="fa-regular fa-eye"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Terms and Conditions Checkbox -->
+        <label class="terms-label" for="signupTerms">
+          <input type="checkbox" id="signupTerms" required>
+          <span>I agree to the <a href="404.html">Platform Demonstration Terms</a> and acknowledge this software operates client-side without remote storage.</span>
+        </label>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary">
+          <span>Create Account</span>
+          <i class="fa-solid fa-user-plus"></i>
+        </button>
+
+        <div class="auth-footer-prompt">
+          Already have an account? <a href="login.html">Log In</a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="globalToast" class="global-toast"></div>
+  <script src="js/script.js"></script>
+</body>
+</html>
