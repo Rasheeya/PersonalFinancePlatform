@@ -2466,7 +2466,19 @@
 
       if (isDashboard) {
         // INSIDE BOTH DASHBOARDS:
-        // 1. Exclude Sidebar Menus (sidebar navigation links that switch views)
+        // 1. Log Out button routes cleanly to login.html
+        if (
+          target.classList.contains('sidebar-logout-btn') ||
+          target.closest('.sidebar-logout-btn')
+        ) {
+          e.preventDefault();
+          e.stopPropagation();
+          e.stopImmediatePropagation();
+          window.location.href = 'login.html';
+          return;
+        }
+
+        // 2. Exclude Sidebar Menus (sidebar navigation links that switch views)
         if (
           target.classList.contains('sidebar-nav-item') ||
           target.closest('.sidebar-nav-item') ||
